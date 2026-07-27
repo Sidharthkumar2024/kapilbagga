@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+  <defs>
+    <linearGradient id="logoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F4C3A"/>
+      <stop offset="100%" stop-color="#166951"/>
+    </linearGradient>
+    <linearGradient id="logoRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8A598"/>
+      <stop offset="100%" stop-color="#F0B8AE"/>
+    </linearGradient>
+  </defs>
+  <!-- Icon Badge -->
+  <rect x="5" y="5" width="50" height="50" rx="16" fill="url(#logoBg)"/>
+  <path d="M30 18 C21 18 15 25 15 34 C15 47 30 55 30 55 C30 55 45 47 45 34 C45 25 39 18 30 18 Z" fill="url(#logoRose)"/>
+  <circle cx="30" cy="33" r="5" fill="#D4AF37"/>
+  <!-- Brand Text -->
+  <text x="68" y="34" font-family="'Playfair Display', Georgia, serif" font-size="24" font-weight="700" fill="#0F4C3A">ArohanCare</text>
+  <text x="69" y="47" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="600" fill="#E8A598" letter-spacing="1.5">FERTILITY &amp; WOMEN'S HEALTH</text>
+</svg>
