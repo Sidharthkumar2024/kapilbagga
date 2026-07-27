@@ -850,12 +850,13 @@ button {
 }
 
 .condition-card {
-  background: var(--pure-white);
-  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border-radius: 28px;
   padding: 2.25rem;
-  border: 1px solid rgba(4, 49, 117, 0.08);
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
+  border: 1px solid var(--navy-100);
+  box-shadow: 0 10px 30px -10px rgba(4, 49, 117, 0.06);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -870,16 +871,16 @@ button {
   top: 0;
   left: 0;
   width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, var(--navy-900), var(--teal-700), var(--leaf-green-500));
+  height: 5px;
+  background: linear-gradient(90deg, #043175, #008B8B, #10B981);
   opacity: 0;
-  transition: opacity var(--transition-fast);
+  transition: opacity 0.3s ease;
 }
 
 .condition-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
-  border-color: rgba(4, 49, 117, 0.2);
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 25px 50px -12px rgba(4, 49, 117, 0.18);
+  border-color: var(--teal-200);
 }
 
 .condition-card:hover::before {
@@ -887,22 +888,49 @@ button {
 }
 
 .condition-icon-wrapper {
-  width: 60px;
-  height: 60px;
-  border-radius: 18px;
-  background: var(--teal-50);
-  color: var(--teal-700);
+  width: 62px;
+  height: 62px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  transition: transform var(--transition-fast);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #FFFFFF;
+}
+
+.condition-icon-wrapper.pcos-icon {
+  background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%);
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3);
+}
+
+.condition-icon-wrapper.cycle-icon {
+  background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+}
+
+.condition-icon-wrapper.ovulation-icon {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
+}
+
+.condition-icon-wrapper.hormone-icon {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+.condition-icon-wrapper.pregnancy-icon {
+  background: linear-gradient(135deg, #F43F5E 0%, #E11D48 100%);
+  box-shadow: 0 8px 20px rgba(244, 63, 94, 0.3);
+}
+
+.condition-icon-wrapper.evaluation-icon {
+  background: linear-gradient(135deg, #0284C7 0%, #043175 100%);
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
 }
 
 .condition-card:hover .condition-icon-wrapper {
-  transform: scale(1.1) rotate(-3deg);
-  background: var(--navy-900);
-  color: var(--pure-white);
+  transform: scale(1.14) rotate(6deg);
 }
 
 .condition-title {
@@ -935,6 +963,11 @@ button {
   background: var(--teal-50);
   color: var(--teal-800);
   border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.condition-card:hover .condition-tag {
+  background: var(--teal-100);
 }
 
 .condition-action {
@@ -946,6 +979,14 @@ button {
   font-weight: 600;
   font-size: 0.9rem;
   color: var(--teal-700);
+}
+
+.condition-action .action-arrow {
+  transition: transform 0.3s ease;
+}
+
+.condition-card:hover .condition-action .action-arrow {
+  transform: translateX(6px);
 }
 
 /* ==========================================================================
