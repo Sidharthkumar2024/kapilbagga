@@ -881,6 +881,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function closeAdminModal() {
+    if (adminModal) {
+      adminModal.classList.remove('open');
+      document.body.style.overflow = '';
+      if (window.location.hash === '#secure-admin' || window.location.hash === '#admin') {
+        history.pushState('', document.title, window.location.pathname + window.location.search);
+      }
+    }
+  }
+
+  function checkUrlHashForAdmin() {
+    const hash = window.location.hash.toLowerCase();
+    const query = window.location.search.toLowerCase();
+    if (hash === '#secure-admin' || hash === '#admin' || query.includes('secure-admin') || query.includes('admin=true')) {
+      openAdminModal();
+    }
+  }
+
+  // Listen for URL hash changes and page load
+  window.addEventListener('hashchange', checkUrlHashForAdmin);
+  checkUrlHashForAdmin();
+
+  // Secret keyboard shortcut: Ctrl+Shift+A or Cmd+Shift+A
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'a') {
+      e.preventDefault();
+      if (adminModal && adminModal.classList.contains('open')) {
+        closeAdminModal();
+      } else {
+        window.location.hash = '#secure-admin';
+      }
+    }
+  });
+
   function showLoginScreen() {
     if (adminLoginScreen) adminLoginScreen.style.display = 'block';
     if (adminDashboardScreen) adminDashboardScreen.style.display = 'none';
@@ -906,10 +940,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (closeAdminModalBtn) {
-    closeAdminModalBtn.addEventListener('click', () => {
-      adminModal.classList.remove('open');
-      document.body.style.overflow = '';
-    });
+    closeAdminModalBtn.addEventListener('click', closeAdminModal);
   }
 
   if (adminLoginForm) {
