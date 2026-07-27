@@ -266,8 +266,8 @@ document.addEventListener('DOMContentLoaded', () => {
       stepBadge: "Step 3 of 6",
       time: "⏱ Day 4–7",
       icon: "🔬",
-      title: "Step 3: Targeted 3D Ultrasound & Endocrine Diagnostics",
-      desc: "Advanced 3D pelvic sonography, ovarian follicle count (AFC), AMH reserve screening, and hormone mapping performed gently under one roof with zero waiting time.",
+      title: "Step 3: Diagnostic Tests, When Needed",
+      desc: "Your doctor recommends only the tests that are medically necessary. Home sample collection is available for eligible blood tests, while specialised scans are scheduled at the appropriate facility.",
       actionText: "🔍 View Diagnostic Screening Details"
     },
     4: {
