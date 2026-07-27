@@ -2227,6 +2227,48 @@ button {
   color: var(--teal-800);
 }
 
+/* ==========================================================================
+   INTERACTIVE SYMPTOM PICKER & REFERENCE SITE STYLES (HEYSHAKTI INSPIRED)
+   ========================================================================== */
+.symptom-picker-btn {
+  background: var(--pure-white);
+  border: 1px solid var(--teal-200);
+  border-radius: 9999px;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--navy-950);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 139, 139, 0.08);
+  transition: all 0.25s ease;
+}
+
+.symptom-picker-btn:hover {
+  background: var(--navy-900);
+  color: var(--pure-white);
+  border-color: var(--navy-900);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(4, 49, 117, 0.2);
+}
+
+.pricing-transparent-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.pricing-transparent-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 70px -15px rgba(1, 22, 56, 0.45);
+}
+
+.blog-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -10px rgba(4, 49, 117, 0.14);
+}
+
 /* Media Queries for Responsive Clean Layouts */
 @media (max-width: 1024px) {
   .hero-grid,
