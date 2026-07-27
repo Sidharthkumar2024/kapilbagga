@@ -306,6 +306,21 @@ button {
 .btn-green:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.5);
+  color: var(--pure-white);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  color: var(--pure-white);
+  font-weight: 700;
+  box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.45);
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+  color: var(--pure-white);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -5px rgba(245, 158, 11, 0.6);
 }
 
 .btn-sm {
