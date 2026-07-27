@@ -1480,10 +1480,11 @@ button {
 
 .footer-col-title {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--teal-500);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--pure-white);
   margin-bottom: 1.25rem;
+  letter-spacing: 0.02em;
 }
 
 .footer-links {
@@ -1495,12 +1496,12 @@ button {
 
 .footer-link {
   color: var(--charcoal-300);
-  font-size: 0.9rem;
+  font-size: 0.925rem;
   transition: color var(--transition-fast);
 }
 
 .footer-link:hover {
-  color: var(--teal-500);
+  color: #5EEAD4;
 }
 
 .footer-hours-box {
