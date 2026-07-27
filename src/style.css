@@ -1,55 +1,57 @@
 /* ==========================================================================
    AROHANCARE - FERTILITY & WOMEN'S HEALTH CLINIC DESIGN SYSTEM
-   Theme: Deep Emerald, Warm Rose, Soft Gold, Warm White
+   Theme: Arohan Navy (#043175), Care Teal (#008B8B), Leaf Green (#10B981), Leaf Purple (#7E22CE)
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
-  /* Color Palette */
-  --emerald-950: #051F18;
-  --emerald-900: #093326;
-  --emerald-800: #0F4C3A; /* Primary Emerald */
-  --emerald-700: #176650;
-  --emerald-600: #1E8267;
-  --emerald-500: #27A180;
-  --emerald-200: #CBEADF;
-  --emerald-100: #E6F4EF;
-  --emerald-50:  #F2F9F6;
+  /* Brand Logo Color Palette */
+  --navy-950: #011638;
+  --navy-900: #043175; /* "Arohan" Brand Navy */
+  --navy-800: #08439C;
+  --navy-700: #1257C4;
+  --navy-600: #216EE8;
+  --navy-100: #E0EAFD;
+  --navy-50:  #F0F4FE;
 
-  --rose-600: #D88B7D;
-  --rose-500: #E8A598; /* Secondary Warm Rose */
-  --rose-400: #F1BCB2;
-  --rose-200: #F8DCD7;
-  --rose-100: #FBF0ED;
-  --rose-50:  #FDF7F5;
+  --teal-900: #004D4D;
+  --teal-800: #006666;
+  --teal-700: #008080; /* "Care" Brand Teal */
+  --teal-600: #008B8B;
+  --teal-500: #0D9488;
+  --teal-100: #CCFBF1;
+  --teal-50:  #F0FDF4;
 
-  --gold-600: #B89325;
-  --gold-500: #D4AF37; /* Accent Soft Gold */
-  --gold-400: #E5C354;
-  --gold-200: #F4E5A8;
-  --gold-100: #FAF3E0;
-  --gold-50:  #FDFBF3;
+  --leaf-green-700: #047857;
+  --leaf-green-600: #059669;
+  --leaf-green-500: #10B981; /* Logo Medical Cross & Left Leaf */
+  --leaf-green-100: #D1FAE5;
+  --leaf-green-50:  #ECFDF5;
 
-  --warm-white: #FDFBF7; /* Background */
+  --leaf-purple-700: #6B21A8;
+  --leaf-purple-600: #7E22CE; /* Logo Right Leaf */
+  --leaf-purple-500: #9333EA;
+  --leaf-purple-100: #F3E8FF;
+  --leaf-purple-50:  #FAF5FF;
+
+  --warm-white: #F8FAFC; /* Page Background */
   --pure-white: #FFFFFF; /* Cards */
   
-  --charcoal-950: #0B0F17;
-  --charcoal-900: #111827; /* Main Text */
-  --charcoal-800: #1F2937;
-  --charcoal-700: #374151;
-  --charcoal-600: #4B5563;
-  --charcoal-500: #6B7280;
-  --charcoal-400: #9CA3AF;
-  --charcoal-300: #D1D5DB;
-  --charcoal-200: #E5E7EB;
-  --charcoal-100: #F3F4F6;
-  --charcoal-50:  #F9FAFB;
+  --charcoal-950: #020617;
+  --charcoal-900: #0F172A; /* Main Body Text */
+  --charcoal-800: #1E293B;
+  --charcoal-700: #334155;
+  --charcoal-600: #475569;
+  --charcoal-500: #64748B;
+  --charcoal-400: #94A3B8;
+  --charcoal-300: #CBD5E1;
+  --charcoal-200: #E2E8F0;
+  --charcoal-100: #F1F5F9;
+  --charcoal-50:  #F8FAFC;
 
-  --success-green: #2E7D32;
-  --success-bg: #E8F5E9;
-  --info-blue: #0284C7;
-  --info-bg: #F0F9FF;
+  --success-green: #059669;
+  --success-bg: #D1FAE5;
 
   /* Typography */
   --font-serif: 'Playfair Display', Georgia, serif;
@@ -57,14 +59,14 @@
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
   /* Elevation & Glass */
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.6);
-  --shadow-xs: 0 2px 4px rgba(15, 76, 58, 0.03);
-  --shadow-sm: 0 4px 12px rgba(15, 76, 58, 0.05);
-  --shadow-md: 0 10px 30px -10px rgba(15, 76, 58, 0.08);
-  --shadow-lg: 0 20px 40px -15px rgba(15, 76, 58, 0.12);
-  --shadow-xl: 0 30px 60px -15px rgba(15, 76, 58, 0.18);
-  --shadow-modal: 0 30px 60px -12px rgba(0, 0, 0, 0.25);
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --shadow-xs: 0 2px 4px rgba(4, 49, 117, 0.03);
+  --shadow-sm: 0 4px 12px rgba(4, 49, 117, 0.06);
+  --shadow-md: 0 10px 30px -10px rgba(4, 49, 117, 0.09);
+  --shadow-lg: 0 20px 40px -15px rgba(4, 49, 117, 0.14);
+  --shadow-xl: 0 30px 60px -15px rgba(4, 49, 117, 0.2);
+  --shadow-modal: 0 30px 60px -12px rgba(0, 0, 0, 0.3);
 
   /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -97,7 +99,7 @@ body {
 
 @media (max-width: 768px) {
   body {
-    padding-bottom: 4.5rem; /* Reserve space for sticky mobile bottom CTA bar */
+    padding-bottom: 4.5rem;
   }
 }
 
@@ -144,7 +146,7 @@ button {
   top: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--emerald-800), var(--gold-500), var(--rose-500));
+  background: linear-gradient(90deg, var(--navy-900), var(--teal-600), var(--leaf-green-500), var(--leaf-purple-600));
   z-index: 1001;
   width: 0%;
   transition: width 0.1s linear;
@@ -155,31 +157,35 @@ button {
   font-family: var(--font-serif);
 }
 
-.text-gold {
-  color: var(--gold-500);
+.text-navy {
+  color: var(--navy-900);
 }
 
-.text-rose {
-  color: var(--rose-600);
+.text-teal {
+  color: var(--teal-700);
 }
 
-.text-emerald {
-  color: var(--emerald-800);
+.text-green {
+  color: var(--leaf-green-600);
+}
+
+.text-purple {
+  color: var(--leaf-purple-600);
 }
 
 .section-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.4rem 1rem;
-  background-color: var(--emerald-100);
-  color: var(--emerald-800);
+  padding: 0.4rem 1.1rem;
+  background-color: var(--teal-50);
+  color: var(--teal-800);
   border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   margin-bottom: 1.25rem;
-  border: 1px solid var(--emerald-200);
+  border: 1px solid var(--teal-100);
   width: fit-content;
 }
 
@@ -188,7 +194,7 @@ button {
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 600;
   line-height: 1.2;
-  color: var(--emerald-950);
+  color: var(--navy-950);
   margin-bottom: 1.25rem;
   letter-spacing: -0.01em;
   text-wrap: balance;
@@ -237,16 +243,17 @@ button {
   }
 }
 
+/* Primary Button: Navy Blue from Logo */
 .btn-primary {
-  background-color: var(--emerald-800);
+  background-color: var(--navy-900);
   color: var(--pure-white);
-  box-shadow: 0 10px 25px -5px rgba(15, 76, 58, 0.3);
+  box-shadow: 0 10px 25px -5px rgba(4, 49, 117, 0.35);
 }
 
 .btn-primary:hover {
-  background-color: var(--emerald-900);
+  background-color: var(--navy-800);
   transform: translateY(-2px);
-  box-shadow: 0 15px 30px -5px rgba(15, 76, 58, 0.4);
+  box-shadow: 0 15px 30px -5px rgba(4, 49, 117, 0.45);
 }
 
 .btn-primary:active {
@@ -255,16 +262,28 @@ button {
 
 .btn-secondary {
   background-color: var(--pure-white);
-  color: var(--emerald-800);
-  border: 1.5px solid var(--emerald-200);
+  color: var(--navy-900);
+  border: 1.5px solid var(--navy-100);
   box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {
-  border-color: var(--emerald-800);
-  background-color: var(--emerald-50);
+  border-color: var(--navy-900);
+  background-color: var(--navy-50);
   transform: translateY(-2px);
-  color: var(--emerald-900);
+  color: var(--navy-950);
+}
+
+/* Teal Accent Button */
+.btn-teal {
+  background-color: var(--teal-700);
+  color: var(--pure-white);
+  box-shadow: 0 10px 25px -5px rgba(0, 128, 128, 0.35);
+}
+
+.btn-teal:hover {
+  background-color: var(--teal-800);
+  transform: translateY(-2px);
 }
 
 .btn-whatsapp {
@@ -279,16 +298,16 @@ button {
   box-shadow: 0 15px 30px -5px rgba(37, 211, 102, 0.4);
 }
 
-.btn-gold {
-  background: linear-gradient(135deg, var(--gold-500), #C49E2E);
-  color: var(--emerald-950);
+.btn-green {
+  background: linear-gradient(135deg, var(--leaf-green-500), var(--leaf-green-700));
+  color: var(--pure-white);
   font-weight: 700;
-  box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.35);
+  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.35);
 }
 
-.btn-gold:hover {
+.btn-green:hover {
   transform: translateY(-2px);
-  box-shadow: 0 15px 30px -5px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.5);
 }
 
 .btn-sm {
@@ -327,16 +346,16 @@ button {
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1.25rem 0;
+  padding: 1.15rem 0;
   transition: all var(--transition-normal);
 }
 
 .site-header.scrolled {
-  padding: 0.75rem 0;
+  padding: 0.65rem 0;
   background: var(--glass-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(15, 76, 58, 0.08);
+  border-bottom: 1px solid rgba(4, 49, 117, 0.08);
   box-shadow: var(--shadow-sm);
 }
 
@@ -351,25 +370,15 @@ button {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--emerald-950);
-  letter-spacing: -0.02em;
+  text-decoration: none;
   flex-shrink: 0;
 }
 
-.logo-icon {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, var(--emerald-800), var(--emerald-600));
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gold-500);
-  box-shadow: 0 4px 12px rgba(15, 76, 58, 0.2);
-  flex-shrink: 0;
+.logo img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(4, 49, 117, 0.1));
 }
 
 .nav-links {
@@ -381,7 +390,7 @@ button {
 
 .nav-link {
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--charcoal-700);
   transition: color var(--transition-fast);
   position: relative;
@@ -396,13 +405,13 @@ button {
   left: 0;
   width: 0%;
   height: 2px;
-  background-color: var(--emerald-800);
+  background-color: var(--teal-700);
   transition: width var(--transition-fast);
   border-radius: 2px;
 }
 
 .nav-link:hover {
-  color: var(--emerald-800);
+  color: var(--navy-900);
 }
 
 .nav-link:hover::after {
@@ -425,7 +434,7 @@ button {
   border: 1px solid var(--charcoal-200);
   align-items: center;
   justify-content: center;
-  color: var(--charcoal-800);
+  color: var(--navy-900);
 }
 
 /* Mobile Drawer Navigation */
@@ -454,7 +463,7 @@ button {
 .drawer-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(11, 15, 23, 0.4);
+  background: rgba(2, 6, 23, 0.4);
   backdrop-filter: blur(4px);
   z-index: 1001;
   opacity: 0;
@@ -473,8 +482,8 @@ button {
 .hero-section {
   padding-top: 9.5rem;
   padding-bottom: 5.5rem;
-  background: radial-gradient(circle at 10% 20%, rgba(232, 165, 152, 0.15) 0%, transparent 40%),
-              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.12) 0%, transparent 45%),
+  background: radial-gradient(circle at 10% 20%, rgba(0, 139, 139, 0.12) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(126, 34, 206, 0.08) 0%, transparent 45%),
               var(--warm-white);
   position: relative;
   overflow: hidden;
@@ -493,11 +502,11 @@ button {
   gap: 0.6rem;
   padding: 0.4rem 1rem;
   background: var(--pure-white);
-  border: 1px solid var(--rose-200);
+  border: 1px solid var(--teal-100);
   border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--emerald-900);
+  color: var(--teal-800);
   box-shadow: var(--shadow-sm);
   margin-bottom: 1.5rem;
 }
@@ -507,7 +516,7 @@ button {
   font-size: clamp(2.4rem, 4.8vw, 4.2rem);
   font-weight: 600;
   line-height: 1.15;
-  color: var(--emerald-950);
+  color: var(--navy-950);
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
   text-wrap: balance;
@@ -534,7 +543,7 @@ button {
   align-items: center;
   gap: 1.75rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(15, 76, 58, 0.12);
+  border-top: 1px solid rgba(4, 49, 117, 0.1);
   font-size: 0.875rem;
   color: var(--charcoal-600);
   flex-wrap: wrap;
@@ -544,10 +553,11 @@ button {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--navy-900);
 }
 
-/* Hero Showcase & Floating Cards (No Overlap Fix) */
+/* Hero Showcase & Floating Cards */
 .hero-visual {
   position: relative;
   display: flex;
@@ -569,7 +579,13 @@ button {
   z-index: 1;
 }
 
-/* Floating Trust Cards - Positioned Safely */
+.hero-img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
 .hero-trust-cards-container {
   display: flex;
   flex-direction: column;
@@ -613,30 +629,13 @@ button {
 .floating-card-val {
   font-weight: 700;
   font-size: 0.975rem;
-  color: var(--emerald-950);
+  color: var(--navy-950);
   line-height: 1.2;
 }
 
 .floating-card-lbl {
   font-size: 0.775rem;
   color: var(--charcoal-600);
-}
-
-/* Fallback SVG Graphic for Hero */
-.hero-graphic-fallback {
-  width: 100%;
-  min-height: 420px;
-  border-radius: 24px;
-  background: linear-gradient(135deg, var(--emerald-800), var(--emerald-900));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2.25rem 1.5rem;
-  text-align: center;
-  color: var(--pure-white);
-  position: relative;
-  overflow: hidden;
 }
 
 /* ==========================================================================
@@ -671,7 +670,7 @@ button {
   font-family: var(--font-serif);
   font-size: clamp(2.2rem, 3.5vw, 3.5rem);
   font-weight: 700;
-  color: var(--emerald-800);
+  color: var(--navy-900);
   line-height: 1.1;
   margin-bottom: 0.5rem;
 }
@@ -699,11 +698,11 @@ button {
   gap: 0.6rem;
   font-weight: 600;
   font-size: 0.925rem;
-  color: var(--emerald-900);
+  color: var(--navy-900);
   padding: 0.5rem 1rem;
-  background: var(--emerald-50);
+  background: var(--navy-50);
   border-radius: 9999px;
-  border: 1px solid var(--emerald-200);
+  border: 1px solid var(--navy-100);
   white-space: nowrap;
 }
 
@@ -725,7 +724,7 @@ button {
   background: var(--pure-white);
   border-radius: 24px;
   padding: 2.25rem;
-  border: 1px solid rgba(15, 76, 58, 0.08);
+  border: 1px solid rgba(4, 49, 117, 0.08);
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-normal);
   display: flex;
@@ -743,7 +742,7 @@ button {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, var(--emerald-800), var(--rose-500));
+  background: linear-gradient(90deg, var(--navy-900), var(--teal-700), var(--leaf-green-500));
   opacity: 0;
   transition: opacity var(--transition-fast);
 }
@@ -751,7 +750,7 @@ button {
 .condition-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-xl);
-  border-color: rgba(15, 76, 58, 0.2);
+  border-color: rgba(4, 49, 117, 0.2);
 }
 
 .condition-card:hover::before {
@@ -762,8 +761,8 @@ button {
   width: 60px;
   height: 60px;
   border-radius: 18px;
-  background: var(--rose-100);
-  color: var(--emerald-900);
+  background: var(--teal-50);
+  color: var(--teal-700);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -773,7 +772,7 @@ button {
 
 .condition-card:hover .condition-icon-wrapper {
   transform: scale(1.1) rotate(-3deg);
-  background: var(--emerald-800);
+  background: var(--navy-900);
   color: var(--pure-white);
 }
 
@@ -781,7 +780,7 @@ button {
   font-family: var(--font-serif);
   font-size: 1.45rem;
   font-weight: 600;
-  color: var(--emerald-950);
+  color: var(--navy-950);
   margin-bottom: 0.75rem;
   line-height: 1.25;
 }
@@ -804,8 +803,8 @@ button {
   font-size: 0.75rem;
   font-weight: 600;
   padding: 0.25rem 0.65rem;
-  background: var(--emerald-50);
-  color: var(--emerald-800);
+  background: var(--teal-50);
+  color: var(--teal-800);
   border-radius: 6px;
 }
 
@@ -817,7 +816,7 @@ button {
   border-top: 1px solid var(--charcoal-100);
   font-weight: 600;
   font-size: 0.9rem;
-  color: var(--emerald-800);
+  color: var(--teal-700);
 }
 
 /* ==========================================================================
@@ -854,23 +853,8 @@ button {
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   position: relative;
-  background: var(--rose-100);
+  background: var(--teal-50);
   min-height: 360px;
-}
-
-.why-illustration-box {
-  width: 100%;
-  height: 100%;
-  min-height: 360px;
-  background: linear-gradient(135deg, var(--emerald-800), var(--emerald-950));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2.5rem 1.5rem;
-  color: var(--pure-white);
-  text-align: center;
-  position: relative;
 }
 
 .why-content-box {
@@ -881,7 +865,7 @@ button {
   font-family: var(--font-serif);
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--gold-500);
+  color: var(--teal-700);
   margin-bottom: 0.75rem;
   display: block;
 }
@@ -890,7 +874,7 @@ button {
   font-family: var(--font-serif);
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   font-weight: 600;
-  color: var(--emerald-950);
+  color: var(--navy-950);
   margin-bottom: 1rem;
   line-height: 1.25;
 }
@@ -919,16 +903,16 @@ button {
 }
 
 .why-list-item svg {
-  color: var(--emerald-800);
+  color: var(--teal-700);
   flex-shrink: 0;
   margin-top: 0.15rem;
 }
 
 /* ==========================================================================
-   DOCTOR SECTION (NO OVERLAP FIX)
+   DOCTOR SECTION
    ========================================================================== */
 .doctor-section {
-  background-color: var(--emerald-950);
+  background-color: var(--navy-950);
   color: var(--pure-white);
   position: relative;
   overflow: hidden;
@@ -941,7 +925,7 @@ button {
   right: -10%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(232, 165, 152, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 139, 139, 0.15) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -959,21 +943,15 @@ button {
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  background: var(--emerald-900);
+  background: var(--navy-900);
   display: flex;
   flex-direction: column;
 }
 
-.doctor-portrait-fallback {
+.doctor-img {
   width: 100%;
-  min-height: 400px;
-  background: linear-gradient(135deg, var(--emerald-800), var(--emerald-900));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem 2rem 6.5rem; /* Reserve bottom space so centered text never overlaps floating badge */
-  text-align: center;
+  height: 480px;
+  object-fit: cover;
 }
 
 .doctor-badge-floating {
@@ -981,7 +959,7 @@ button {
   bottom: 1.25rem;
   left: 1.25rem;
   right: 1.25rem;
-  background: rgba(9, 51, 38, 0.92);
+  background: rgba(1, 22, 56, 0.92);
   backdrop-filter: blur(12px);
   padding: 0.9rem 1.25rem;
   border-radius: 18px;
@@ -1002,7 +980,7 @@ button {
 }
 
 .doctor-title {
-  color: var(--rose-400);
+  color: var(--teal-500);
   font-size: 1.05rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
@@ -1010,7 +988,7 @@ button {
 
 .doctor-bio {
   font-size: 1.05rem;
-  color: var(--emerald-100);
+  color: var(--navy-100);
   line-height: 1.7;
   margin-bottom: 2rem;
 }
@@ -1029,7 +1007,7 @@ button {
   font-family: var(--font-serif);
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--gold-500);
+  color: var(--leaf-green-500);
   line-height: 1.2;
 }
 
@@ -1056,7 +1034,7 @@ button {
 }
 
 /* ==========================================================================
-   PATIENT JOURNEY TIMELINE (NO OVERLAP FIX)
+   PATIENT JOURNEY TIMELINE
    ========================================================================== */
 .timeline-section {
   background-color: var(--warm-white);
@@ -1074,14 +1052,14 @@ button {
   left: 8%;
   right: 8%;
   height: 4px;
-  background: var(--emerald-100);
+  background: var(--navy-100);
   z-index: 1;
   border-radius: 2px;
 }
 
 .timeline-line-progress {
   height: 100%;
-  background: linear-gradient(90deg, var(--emerald-800), var(--gold-500));
+  background: linear-gradient(90deg, var(--navy-900), var(--teal-700), var(--leaf-green-500));
   width: 0%;
   transition: width 0.6s ease;
   border-radius: 2px;
@@ -1109,8 +1087,8 @@ button {
   height: 60px;
   border-radius: 50%;
   background: var(--pure-white);
-  border: 3px solid var(--emerald-200);
-  color: var(--emerald-800);
+  border: 3px solid var(--navy-100);
+  color: var(--navy-900);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1124,18 +1102,18 @@ button {
 
 .timeline-step-node.active .timeline-step-circle,
 .timeline-step-node:hover .timeline-step-circle {
-  background: var(--emerald-800);
-  border-color: var(--gold-500);
+  background: var(--navy-900);
+  border-color: var(--leaf-green-500);
   color: var(--pure-white);
   transform: scale(1.12);
-  box-shadow: 0 0 20px rgba(15, 76, 58, 0.3);
+  box-shadow: 0 0 20px rgba(4, 49, 117, 0.3);
 }
 
 .timeline-step-title {
   font-family: var(--font-serif);
   font-size: 0.975rem;
   font-weight: 600;
-  color: var(--emerald-950);
+  color: var(--navy-950);
   margin-bottom: 0.4rem;
   line-height: 1.3;
   word-break: break-word;
@@ -1154,7 +1132,7 @@ button {
   background: var(--pure-white);
   border-radius: 24px;
   padding: 2.25rem;
-  border: 1px solid var(--emerald-200);
+  border: 1px solid var(--teal-100);
   box-shadow: var(--shadow-md);
   display: flex;
   align-items: center;
@@ -1165,9 +1143,9 @@ button {
    INTERACTIVE FERTILITY ASSESSMENT QUIZ
    ========================================================================== */
 .quiz-section {
-  background: linear-gradient(135deg, var(--rose-100) 0%, var(--emerald-50) 100%);
-  border-top: 1px solid var(--rose-200);
-  border-bottom: 1px solid var(--rose-200);
+  background: linear-gradient(135deg, var(--teal-50) 0%, var(--navy-50) 100%);
+  border-top: 1px solid var(--teal-100);
+  border-bottom: 1px solid var(--teal-100);
 }
 
 .quiz-card {
@@ -1197,7 +1175,7 @@ button {
 
 .quiz-progress-fill {
   height: 100%;
-  background: var(--emerald-800);
+  background: var(--navy-900);
   width: 25%;
   transition: width var(--transition-fast);
 }
@@ -1206,7 +1184,7 @@ button {
   font-family: var(--font-serif);
   font-size: 1.45rem;
   font-weight: 600;
-  color: var(--emerald-950);
+  color: var(--navy-950);
   margin-bottom: 1.75rem;
   line-height: 1.35;
 }
@@ -1235,9 +1213,9 @@ button {
 
 .quiz-option-btn:hover,
 .quiz-option-btn.selected {
-  border-color: var(--emerald-800);
-  background: var(--emerald-50);
-  color: var(--emerald-950);
+  border-color: var(--navy-900);
+  background: var(--navy-50);
+  color: var(--navy-950);
 }
 
 /* ==========================================================================
@@ -1257,7 +1235,7 @@ button {
   background: var(--warm-white);
   border-radius: 32px;
   padding: 3.5rem;
-  border: 1px solid var(--emerald-100);
+  border: 1px solid var(--navy-100);
   box-shadow: var(--shadow-lg);
   display: grid;
   grid-template-columns: 0.7fr 1.3fr;
@@ -1269,13 +1247,13 @@ button {
   font-family: var(--font-serif);
   font-size: 1.3rem;
   line-height: 1.6;
-  color: var(--emerald-950);
+  color: var(--navy-950);
   font-style: italic;
   margin-bottom: 1.5rem;
 }
 
 .testimonial-stars {
-  color: var(--gold-500);
+  color: #F59E0B;
   display: flex;
   gap: 0.25rem;
   margin-bottom: 1rem;
@@ -1285,7 +1263,7 @@ button {
 .testimonial-author-name {
   font-weight: 700;
   font-size: 1.1rem;
-  color: var(--emerald-950);
+  color: var(--navy-950);
 }
 
 .testimonial-author-meta {
@@ -1310,14 +1288,14 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--emerald-900);
+  color: var(--navy-900);
   transition: all var(--transition-fast);
 }
 
 .carousel-btn:hover {
-  background: var(--emerald-800);
+  background: var(--navy-900);
   color: var(--pure-white);
-  border-color: var(--emerald-800);
+  border-color: var(--navy-900);
 }
 
 .carousel-dots {
@@ -1335,7 +1313,7 @@ button {
 }
 
 .carousel-dot.active {
-  background: var(--emerald-800);
+  background: var(--navy-900);
   width: 24px;
   border-radius: 9999px;
 }
@@ -1358,14 +1336,14 @@ button {
 .faq-item {
   background: var(--pure-white);
   border-radius: 20px;
-  border: 1px solid var(--emerald-100);
+  border: 1px solid var(--navy-100);
   overflow: hidden;
   box-shadow: var(--shadow-xs);
   transition: border-color var(--transition-fast);
 }
 
 .faq-item:hover {
-  border-color: var(--emerald-200);
+  border-color: var(--teal-100);
 }
 
 .faq-question {
@@ -1378,7 +1356,7 @@ button {
   font-family: var(--font-serif);
   font-size: 1.15rem;
   font-weight: 600;
-  color: var(--emerald-950);
+  color: var(--navy-950);
   gap: 1rem;
   line-height: 1.35;
 }
@@ -1387,8 +1365,8 @@ button {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--emerald-50);
-  color: var(--emerald-800);
+  background: var(--navy-50);
+  color: var(--navy-900);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1398,7 +1376,7 @@ button {
 
 .faq-item.active .faq-icon {
   transform: rotate(180deg);
-  background: var(--emerald-800);
+  background: var(--navy-900);
   color: var(--pure-white);
 }
 
@@ -1422,7 +1400,7 @@ button {
    ========================================================================== */
 .cta-banner-section {
   padding: 5rem 0;
-  background: linear-gradient(135deg, var(--emerald-950) 0%, var(--emerald-800) 100%);
+  background: linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 100%);
   color: var(--pure-white);
   position: relative;
   overflow: hidden;
@@ -1448,7 +1426,7 @@ button {
 
 .cta-banner-subtitle {
   font-size: 1.15rem;
-  color: var(--emerald-100);
+  color: var(--navy-100);
   margin-bottom: 2.5rem;
   line-height: 1.7;
 }
@@ -1465,7 +1443,7 @@ button {
    FOOTER
    ========================================================================== */
 .site-footer {
-  background-color: var(--emerald-950);
+  background-color: var(--navy-950);
   color: var(--pure-white);
   padding-top: 5rem;
   padding-bottom: 2rem;
@@ -1491,7 +1469,7 @@ button {
   font-family: var(--font-serif);
   font-size: 1.15rem;
   font-weight: 600;
-  color: var(--gold-500);
+  color: var(--teal-500);
   margin-bottom: 1.25rem;
 }
 
@@ -1509,7 +1487,7 @@ button {
 }
 
 .footer-link:hover {
-  color: var(--rose-400);
+  color: var(--teal-500);
 }
 
 .footer-hours-box {
@@ -1539,7 +1517,7 @@ button {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(11, 15, 23, 0.65);
+  background: rgba(2, 6, 23, 0.65);
   backdrop-filter: blur(8px);
   z-index: 2000;
   display: flex;
@@ -1592,8 +1570,8 @@ button {
 }
 
 .modal-close-btn:hover {
-  background: var(--rose-100);
-  color: var(--emerald-950);
+  background: var(--teal-50);
+  color: var(--navy-950);
 }
 
 /* Form Styles inside Modal */
@@ -1623,9 +1601,9 @@ button {
 
 .form-input:focus, .form-select:focus, .form-textarea:focus {
   outline: none;
-  border-color: var(--emerald-800);
+  border-color: var(--navy-900);
   background: var(--pure-white);
-  box-shadow: 0 0 0 4px rgba(15, 76, 58, 0.1);
+  box-shadow: 0 0 0 4px rgba(4, 49, 117, 0.1);
 }
 
 .form-row {

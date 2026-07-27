@@ -1,16 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0F4C3A" />
-      <stop offset="100%" stop-color="#093326" />
+    <linearGradient id="favBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#043175"/>
+      <stop offset="100%" stop-color="#021F4B"/>
     </linearGradient>
-    <linearGradient id="roseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#E8A598" />
-      <stop offset="100%" stop-color="#D88B7D" />
+    <linearGradient id="favTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#008B8B"/>
+      <stop offset="100%" stop-color="#0D9488"/>
     </linearGradient>
   </defs>
-  <rect width="100" height="100" rx="28" fill="url(#bgGrad)" />
-  <path d="M50 22 C35 22 24 33 24 48 C24 68 50 82 50 82 C50 82 76 68 76 48 C76 33 65 22 50 22 Z" fill="url(#roseGrad)" opacity="0.95"/>
-  <circle cx="50" cy="45" r="9" fill="#D4AF37" />
-  <path d="M50 36 L53 43 L60 45 L55 50 L56 57 L50 53 L44 57 L45 50 L40 45 L47 43 Z" fill="#FFFFFF" opacity="0.4"/>
+  <rect width="100" height="100" rx="28" fill="url(#favBg)"/>
+  <!-- Leaves -->
+  <path d="M 28 65 C 18 50 30 35 48 50 Z" fill="#10B981"/>
+  <path d="M 72 65 C 82 50 70 35 52 50 Z" fill="#7E22CE"/>
+  <!-- Central Ring & Medical Cross -->
+  <circle cx="50" cy="40" r="20" fill="none" stroke="url(#favTeal)" stroke-width="4"/>
+  <rect x="45" y="32" width="10" height="16" rx="2" fill="#10B981"/>
+  <rect x="42" y="35" width="16" height="10" rx="2" fill="#10B981"/>
+  <!-- DNA Helix Stem -->
+  <path d="M 50 65 Q 46 72 50 78 Q 54 84 50 90" fill="none" stroke="#008B8B" stroke-width="3"/>
+  <path d="M 50 65 Q 54 72 50 78 Q 46 84 50 90" fill="none" stroke="#10B981" stroke-width="3"/>
 </svg>
