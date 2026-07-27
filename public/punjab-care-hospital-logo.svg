@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 140" width="100%" height="100%">
+  <!-- Emblem: Hands & Punjab Map Shape -->
+  <g transform="translate(10, 10)">
+    <!-- Top Blue Hand Arc -->
+    <path d="M 25 45 C 35 15, 80 5, 120 22 C 100 32, 70 30, 45 48 C 35 53, 28 50, 25 45 Z" fill="#1E3A8A" />
+    <path d="M 30 28 C 45 10, 90 2, 130 20 C 110 28, 75 24, 48 42 Z" fill="#2563EB" opacity="0.8" />
+    
+    <!-- Bottom Green Hand Arc -->
+    <path d="M 15 65 C 25 95, 70 115, 110 100 C 90 88, 60 92, 35 72 C 25 64, 18 64, 15 65 Z" fill="#059669" />
+    <path d="M 10 78 C 22 108, 65 125, 105 110 C 85 98, 52 102, 30 82 Z" fill="#10B981" opacity="0.8" />
+
+    <!-- Map of Punjab Silhouette (Center Navy Blue) -->
+    <path d="M 45 42 L 68 38 L 85 45 L 92 60 L 88 78 L 72 88 L 52 82 L 40 65 Z" fill="#1E3A8A" stroke="#FFFFFF" stroke-width="1.5" />
+    
+    <!-- Punjabi Script in Center Map "ਪੰਜਾਬ ਕੇਅਰ" -->
+    <text x="66" y="65" font-family="'Noto Sans Gurmukhi', sans-serif, Arial" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">ਪੰਜਾਬ</text>
+    <text x="66" y="76" font-family="'Noto Sans Gurmukhi', sans-serif, Arial" font-size="9" font-weight="bold" fill="#FFFFFF" text-anchor="middle">ਕੇਅਰ</text>
+  </g>
+
+  <!-- Typography Right Side -->
+  <g transform="translate(145, 18)">
+    <!-- PUNJAB (Navy Blue Serif) -->
+    <text x="0" y="48" font-family="'Cinzel', 'Georgia', serif" font-size="44" font-weight="900" fill="#1E3A8A" letter-spacing="1">PUNJAB</text>
+    
+    <!-- CARE HOSPITAL (Emerald Green Sans-Serif) -->
+    <text x="188" y="48" font-family="'Outfit', 'Inter', sans-serif" font-size="34" font-weight="800" fill="#059669" letter-spacing="0.5">CARE HOSPITAL</text>
+    
+    <!-- Subtitle Pill in Punjabi: ਪੰਜਾਬ ਕੇਅਰ ਹਸਪਤਾਲ -->
+    <g transform="translate(42, 60)">
+      <rect x="0" y="0" width="310" height="36" rx="18" fill="none" stroke="#008B8B" stroke-width="2.5"/>
+      <text x="155" y="24" font-family="'Noto Sans Gurmukhi', 'Arial', sans-serif" font-size="20" font-weight="bold" fill="#1E3A8A" text-anchor="middle">ਪੰਜਾਬ ਕੇਅਰ ਹਸਪਤਾਲ</text>
+    </g>
+  </g>
+</svg>
