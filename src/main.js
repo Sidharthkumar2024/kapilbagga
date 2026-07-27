@@ -631,7 +631,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const adminBtn = quizCard.querySelector('.open-admin-btn');
     if (adminBtn) {
-      adminBtn.addEventListener('click', openAdminModal);
+      adminBtn.addEventListener('click', openAdminPortal);
     }
   }
 
@@ -1014,14 +1014,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderAdminTestimonialsTable();
   }
 
-  openAdminBtns.forEach(btn => {
-    btn.addEventListener('click', openAdminModal);
-  });
-
-  if (closeAdminModalBtn) {
-    closeAdminModalBtn.addEventListener('click', closeAdminModal);
-  }
-
   if (adminLoginForm) {
     adminLoginForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -1054,11 +1046,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const adminTabContents = document.querySelectorAll('.admin-tab-content');
 
   adminTabBtns.forEach(tabBtn => {
-    tabBtn.addEventListener('click', () => {
+    tabBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       const targetTabId = tabBtn.getAttribute('data-tab');
+      if (!targetTabId) return;
 
-      adminTabBtns.forEach(b => b.classList.remove('active'));
-      tabBtn.classList.add('active');
+      adminTabBtns.forEach(b => {
+        if (b.getAttribute('data-tab') === targetTabId) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
 
       adminTabContents.forEach(content => {
         if (content.id === targetTabId) {
@@ -1070,6 +1069,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (targetTabId === 'tab-testimonials') {
         renderAdminTestimonialsTable();
+      }
+
+      if (adminSidebar) {
+        adminSidebar.classList.remove('open');
       }
     });
   });
