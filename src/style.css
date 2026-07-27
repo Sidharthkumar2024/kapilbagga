@@ -243,7 +243,6 @@ button {
   }
 }
 
-/* Primary Button: Navy Blue from Logo */
 .btn-primary {
   background-color: var(--navy-900);
   color: var(--pure-white);
@@ -274,7 +273,6 @@ button {
   color: var(--navy-950);
 }
 
-/* Teal Accent Button */
 .btn-teal {
   background-color: var(--teal-700);
   color: var(--pure-white);
@@ -1658,6 +1656,164 @@ button {
   transform: scale(1.1);
 }
 
+/* ==========================================================================
+   ADMIN PANEL STYLING & TABLES
+   ========================================================================== */
+.admin-modal-card {
+  max-width: 1100px;
+  width: 95%;
+  padding: 2.25rem;
+  max-height: 92vh;
+}
+
+.admin-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--charcoal-200);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.admin-nav-tabs {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--charcoal-200);
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+
+.admin-tab-btn {
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--charcoal-600);
+  border-bottom: 3px solid transparent;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.admin-tab-btn:hover {
+  color: var(--navy-900);
+}
+
+.admin-tab-btn.active {
+  color: var(--navy-900);
+  border-bottom-color: var(--navy-900);
+  background: var(--navy-50);
+  border-radius: 8px 8px 0 0;
+}
+
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-stat-card {
+  background: var(--navy-50);
+  padding: 1.15rem;
+  border-radius: 16px;
+  border: 1px solid var(--navy-100);
+  text-align: center;
+}
+
+.admin-stat-val {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--navy-900);
+}
+
+.admin-stat-lbl {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--charcoal-600);
+}
+
+.admin-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.admin-search-input {
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--charcoal-300);
+  font-size: 0.9rem;
+  min-width: 260px;
+  flex: 1;
+}
+
+.admin-table-container {
+  overflow-x: auto;
+  border: 1px solid var(--charcoal-200);
+  border-radius: 16px;
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.admin-table th {
+  background: var(--navy-900);
+  color: var(--pure-white);
+  padding: 0.85rem 1rem;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.admin-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--charcoal-200);
+  vertical-align: middle;
+  color: var(--charcoal-800);
+}
+
+.admin-table tr:hover {
+  background-color: var(--navy-50);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.725rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.status-pending { background: #FEF3C7; color: #92400E; }
+.status-contacted { background: #E0EAFD; color: #043175; }
+.status-confirmed { background: #D1FAE5; color: #065F46; }
+.status-completed { background: #F3E8FF; color: #6B21A8; }
+
+.role-tag {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--teal-50);
+  color: var(--teal-800);
+}
+
 /* Media Queries for Responsive Clean Layouts */
 @media (max-width: 1024px) {
   .hero-grid,
@@ -1685,6 +1841,10 @@ button {
   }
 
   .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
