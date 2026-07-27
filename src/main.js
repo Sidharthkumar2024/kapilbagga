@@ -892,10 +892,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     10. ADMIN PORTAL CONTROLLER & RBAC SYSTEM
+     10. FULL PAGE ADMIN PORTAL CONTROLLER & RBAC SYSTEM
      ========================================================================== */
-  const adminModal = document.getElementById('admin-modal');
-  const closeAdminModalBtn = document.getElementById('close-admin-modal');
+  const adminPagePortal = document.getElementById('admin-page-portal');
+  const mainWebsiteContent = document.querySelector('main');
+  const mainHeader = document.querySelector('.site-header');
+  const mainFooter = document.querySelector('.site-footer');
   const openAdminBtns = document.querySelectorAll('.open-admin-btn');
   const adminLoginForm = document.getElementById('admin-login-form');
   const adminLoginScreen = document.getElementById('admin-login-screen');
@@ -903,6 +905,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const adminLoginError = document.getElementById('admin-login-error');
   const activeUserBadge = document.getElementById('active-user-badge');
   const adminLogoutBtn = document.getElementById('admin-logout-btn');
+  const backToWebsiteBtns = document.querySelectorAll('.back-to-website-btn');
+  const adminSidebar = document.getElementById('admin-sidebar');
+  const adminSidebarToggleBtn = document.getElementById('admin-sidebar-toggle-btn');
 
   const adminSearchInput = document.getElementById('admin-search-input');
   const adminStatusFilter = document.getElementById('admin-status-filter');
@@ -919,9 +924,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeLeadDetailsModalBtn = document.getElementById('close-lead-details-modal');
   const leadDetailsModalBody = document.getElementById('lead-details-modal-body');
 
-  function openAdminModal() {
-    if (!adminModal) return;
-    adminModal.classList.add('open');
+  function openAdminPortal() {
+    if (!adminPagePortal) return;
+    adminPagePortal.style.display = 'block';
+    if (mainWebsiteContent) mainWebsiteContent.style.display = 'none';
+    if (mainHeader) mainHeader.style.display = 'none';
+    if (mainFooter) mainFooter.style.display = 'none';
     document.body.style.overflow = 'hidden';
 
     if (currentAdminSession) {
@@ -931,9 +939,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function closeAdminModal() {
-    if (adminModal) {
-      adminModal.classList.remove('open');
+  function closeAdminPortal() {
+    if (adminPagePortal) {
+      adminPagePortal.style.display = 'none';
+      if (mainWebsiteContent) mainWebsiteContent.style.display = 'block';
+      if (mainHeader) mainHeader.style.display = 'block';
+      if (mainFooter) mainFooter.style.display = 'block';
       document.body.style.overflow = '';
       if (window.location.hash === '#secure-admin' || window.location.hash === '#admin') {
         history.pushState('', document.title, window.location.pathname + window.location.search);
@@ -941,39 +952,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  backToWebsiteBtns.forEach(btn => {
+    btn.addEventListener('click', closeAdminPortal);
+  });
+
+  if (adminSidebarToggleBtn && adminSidebar) {
+    adminSidebarToggleBtn.addEventListener('click', () => {
+      adminSidebar.classList.toggle('open');
+    });
+  }
+
   function checkUrlHashForAdmin() {
     const hash = window.location.hash.toLowerCase();
     const query = window.location.search.toLowerCase();
     if (hash === '#secure-admin' || hash === '#admin' || query.includes('secure-admin') || query.includes('admin=true')) {
-      openAdminModal();
+      openAdminPortal();
     }
   }
 
-  // Listen for URL hash changes and page load
   window.addEventListener('hashchange', checkUrlHashForAdmin);
   checkUrlHashForAdmin();
 
-  // Secret keyboard shortcut: Ctrl+Shift+A or Cmd+Shift+A
+  // Keyboard Shortcut: Ctrl+Shift+A
   document.addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'a') {
       e.preventDefault();
-      if (adminModal && adminModal.classList.contains('open')) {
-        closeAdminModal();
+      if (adminPagePortal && adminPagePortal.style.display === 'block') {
+        closeAdminPortal();
       } else {
         window.location.hash = '#secure-admin';
       }
     }
   });
 
+  openAdminBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.hash = '#secure-admin';
+      openAdminPortal();
+    });
+  });
+
   function showLoginScreen() {
-    if (adminLoginScreen) adminLoginScreen.style.display = 'block';
+    if (adminLoginScreen) adminLoginScreen.style.display = 'flex';
     if (adminDashboardScreen) adminDashboardScreen.style.display = 'none';
     if (adminLoginError) adminLoginError.style.display = 'none';
   }
 
   function showDashboardScreen() {
     if (adminLoginScreen) adminLoginScreen.style.display = 'none';
-    if (adminDashboardScreen) adminDashboardScreen.style.display = 'block';
+    if (adminDashboardScreen) adminDashboardScreen.style.display = 'flex';
 
     const roleName = currentAdminSession === 'super_admin' ? 'Super Admin' :
                      currentAdminSession === 'doctor' ? 'Specialist Doctor' : 'Care Coordinator';

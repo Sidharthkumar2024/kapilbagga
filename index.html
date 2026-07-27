@@ -1214,22 +1214,25 @@
     </div>
   </div>
 
-  <!-- ADMIN PORTAL MODAL DIALOG -->
-  <div class="modal-overlay" id="admin-modal">
-    <div class="modal-card admin-modal-card">
-      <button class="modal-close-btn" id="close-admin-modal" aria-label="Close Admin Portal">&times;</button>
+  <!-- FULL PAGE ADMIN PORTAL (DEDICATED FULL SCREEN) -->
+  <div id="admin-page-portal" class="admin-page-portal" style="display:none;">
+    
+    <!-- SCREEN 1: FULL PAGE ADMIN LOGIN -->
+    <div id="admin-login-screen" class="admin-full-login-wrap">
+      <div class="admin-full-login-card">
+        <div style="background:var(--pure-white); padding:0.6rem 1.25rem; border-radius:14px; display:inline-block; margin-bottom:1.25rem; box-shadow:var(--shadow-sm);">
+          <img src="/arohan-care-logo.png" alt="Arohan Care Logo" style="height: 48px; width: auto; object-fit: contain;">
+        </div>
 
-      <!-- SCREEN 1: ADMIN LOGIN -->
-      <div id="admin-login-screen" style="max-width: 440px; margin: 1rem auto; text-align: center;">
-        <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--navy-50); color: var(--navy-900); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 5a3 3 0 0 1 6 0v3H9V7z"/></svg>
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--teal-50); color: var(--navy-900); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 5a3 3 0 0 1 6 0v3H9V7z"/></svg>
         </div>
         
         <h3 style="font-family:var(--font-serif); font-size: 1.8rem; color: var(--navy-950); margin-bottom: 0.5rem;">
-          ArohanCare Admin Login
+          Clinical Control Portal
         </h3>
         <p style="font-size: 0.9rem; color: var(--charcoal-600); margin-bottom: 1.5rem;">
-          Access patient assessment leads, appointment bookings, and staff management.
+          Secure access for ArohanCare medical directors, doctors & care coordinators.
         </p>
 
         <form id="admin-login-form">
@@ -1244,11 +1247,11 @@
           </div>
 
           <div class="form-group" style="text-align:left;">
-            <label class="form-label" for="admin-role-select">Select Access Role *</label>
+            <label class="form-label" for="admin-role-select">Access Role *</label>
             <select id="admin-role-select" class="form-select" required>
-              <option value="super_admin">Super Admin (Full Access)</option>
-              <option value="doctor">Specialist Doctor (Clinical & Assessment View)</option>
-              <option value="coordinator">Care Coordinator (Patient Contacts & Status)</option>
+              <option value="super_admin">Super Admin (Full Operations Access)</option>
+              <option value="doctor">Specialist Doctor (Clinical Quiz & Patient View)</option>
+              <option value="coordinator">Care Coordinator (Contacts & Status Update)</option>
             </select>
           </div>
 
@@ -1256,211 +1259,267 @@
             Invalid credentials. Please try again.
           </div>
 
-          <button type="submit" class="btn btn-primary btn-lg" style="width:100%; margin-bottom: 1rem;">
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%; margin-bottom: 1.25rem;">
             <span>Secure Admin Login</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13 12H3"/></svg>
           </button>
 
-          <div style="font-size:0.8rem; color:var(--charcoal-500); background:var(--navy-50); padding:0.65rem; border-radius:10px; border:1px solid var(--navy-100);">
+          <div style="font-size:0.8rem; color:var(--charcoal-600); background:var(--navy-50); padding:0.75rem; border-radius:12px; border:1px solid var(--navy-100); margin-bottom:1.25rem;">
             💡 Default Login: Username: <strong>admin</strong> | Password: <strong>admin123</strong>
           </div>
+
+          <button type="button" class="btn btn-secondary btn-sm back-to-website-btn" style="width:100%;">
+            ← Back to Main Website
+          </button>
         </form>
       </div>
+    </div>
 
-      <!-- SCREEN 2: ADMIN DASHBOARD BOARD -->
-      <div id="admin-dashboard-screen" style="display:none;">
+    <!-- SCREEN 2: FULL PAGE DASHBOARD LAYOUT -->
+    <div id="admin-dashboard-screen" class="admin-full-dashboard-layout" style="display:none;">
+      
+      <!-- Left Sidebar Navigation -->
+      <aside class="admin-sidebar" id="admin-sidebar">
+        <div>
+          <!-- Brand Logo -->
+          <div style="background:var(--pure-white); padding:0.6rem 1rem; border-radius:14px; display:inline-block; box-shadow:var(--shadow-sm); margin-bottom:1rem;">
+            <img src="/arohan-care-logo.png" alt="Arohan Care Logo" style="height: 38px; width: auto; object-fit: contain;">
+          </div>
+          <div style="font-size:0.75rem; font-weight:700; color:var(--teal-300); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1.5rem;">
+            Clinical Operations Portal
+          </div>
+
+          <!-- Navigation Links -->
+          <nav class="admin-sidebar-nav">
+            <button class="admin-sidebar-nav-btn active admin-tab-btn" data-tab="tab-submissions">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span>Patient Submissions</span>
+            </button>
+            <button class="admin-sidebar-nav-btn admin-tab-btn" data-tab="tab-testimonials">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>Testimonials Manager</span>
+            </button>
+            <button class="admin-sidebar-nav-btn admin-tab-btn" data-tab="tab-users">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span>Staff Users (RBAC)</span>
+            </button>
+            <button class="admin-sidebar-nav-btn admin-tab-btn" data-tab="tab-security">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>Security Settings</span>
+            </button>
+          </nav>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:1rem; display:flex; flex-direction:column; gap:0.65rem;">
+          <div id="active-user-badge" style="background:rgba(255,255,255,0.1); padding:0.6rem 0.85rem; border-radius:10px; font-size:0.825rem; font-weight:600; color:#FFF;">
+            👤 Super Admin
+          </div>
+          <button class="btn btn-secondary btn-sm back-to-website-btn" style="background:rgba(255,255,255,0.1); color:#FFF; border-color:rgba(255,255,255,0.2); justify-content:flex-start;">
+            ← Main Website
+          </button>
+          <button class="btn btn-secondary btn-sm" id="admin-logout-btn" style="color:#FCA5A5; background:rgba(220,38,38,0.15); border-color:rgba(252,165,165,0.3); justify-content:flex-start;">
+            🚪 Logout
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Content Viewport -->
+      <main class="admin-main-viewport">
         
-        <!-- Header Row -->
-        <div class="admin-header-row">
-          <div>
-            <div style="font-size:0.8rem; font-weight:700; color:var(--teal-700); text-transform:uppercase; letter-spacing:0.05em;">Clinical Control Portal</div>
-            <h3 style="font-family:var(--font-serif); font-size:1.6rem; color:var(--navy-950);">ArohanCare Patient Submissions & RBAC</h3>
-          </div>
-          <div style="display:flex; align-items:center; gap:0.75rem;">
-            <div id="active-user-badge" class="trust-badge" style="background:var(--teal-50); border-color:var(--teal-100); font-size:0.85rem;">
-              👤 Super Admin
-            </div>
-            <button class="btn btn-secondary btn-sm" id="admin-change-pass-btn">🔑 Change Password</button>
-            <button class="btn btn-secondary btn-sm" id="admin-logout-btn" style="color:#DC2626; border-color:#FCA5A5;">Logout</button>
-          </div>
-        </div>
-
-        <!-- Stats Overview -->
-        <div class="admin-stats-grid">
-          <div class="admin-stat-card">
-            <div class="admin-stat-val" id="stat-total-submissions">0</div>
-            <div class="admin-stat-lbl">Total Leads Received</div>
-          </div>
-          <div class="admin-stat-card">
-            <div class="admin-stat-val" id="stat-quiz-leads" style="color:var(--teal-700);">0</div>
-            <div class="admin-stat-lbl">Quiz Assessments</div>
-          </div>
-          <div class="admin-stat-card">
-            <div class="admin-stat-val" id="stat-confirmed-slots" style="color:var(--leaf-green-600);">0</div>
-            <div class="admin-stat-lbl">Confirmed Slots</div>
-          </div>
-          <div class="admin-stat-card">
-            <div class="admin-stat-val" id="stat-pending-leads" style="color:#D97706;">0</div>
-            <div class="admin-stat-lbl">Pending Follow-ups</div>
-          </div>
-        </div>
-
-        <!-- Admin Navigation Tabs -->
-        <div class="admin-nav-tabs">
-          <button class="admin-tab-btn active" data-tab="tab-submissions">📋 Patient Submissions & Quiz Leads</button>
-          <button class="admin-tab-btn" data-tab="tab-testimonials">💬 Testimonials Manager</button>
-          <button class="admin-tab-btn" data-tab="tab-users">👥 Role-Based Staff Users (RBAC)</button>
-          <button class="admin-tab-btn" data-tab="tab-security">🔑 Password & Security Settings</button>
-        </div>
-
-        <!-- TAB 1: SUBMISSIONS & LEADS TABLE -->
-        <div id="tab-submissions" class="admin-tab-content">
-          <div class="admin-filter-bar">
-            <input type="text" id="admin-search-input" class="admin-search-input" placeholder="🔍 Search by Contact, Patient Name, Phone, City, State...">
-            
-            <select id="admin-status-filter" class="form-select" style="width: auto; min-width: 160px;">
-              <option value="all">All Statuses</option>
-              <option value="Pending">Pending</option>
-              <option value="Contacted">Contacted</option>
-              <option value="Confirmed">Confirmed</option>
-              <option value="Completed">Completed</option>
-            </select>
-
-            <select id="admin-type-filter" class="form-select" style="width: auto; min-width: 160px;">
-              <option value="all">All Sources</option>
-              <option value="Quiz Lead">Quiz Lead</option>
-              <option value="Direct Booking">Direct Booking</option>
-            </select>
-
-            <button class="btn btn-teal btn-sm" id="export-csv-btn">📥 Export to CSV</button>
-            <button class="btn btn-primary btn-sm" id="add-manual-lead-btn">➕ Add Lead</button>
-          </div>
-
-          <div class="admin-table-container">
-            <table class="admin-table">
-              <thead>
-                <tr>
-                  <th>ID & Date</th>
-                  <th>Contact Name</th>
-                  <th>Patient Name</th>
-                  <th>Phone & Email</th>
-                  <th>City & State</th>
-                  <th>Concern / Quiz</th>
-                  <th>Source</th>
-                  <th>Status</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="admin-leads-table-body">
-                <!-- Dynamically rendered -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- TAB TESTIMONIALS: MANAGE HOMEPAGE REVIEWS -->
-        <div id="tab-testimonials" class="admin-tab-content" style="display:none;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:1rem;">
+        <!-- Top Bar Header -->
+        <header class="admin-top-header">
+          <div style="display:flex; align-items:center; gap:1rem;">
+            <button id="admin-sidebar-toggle-btn" class="btn btn-secondary btn-sm" style="display:none; padding:0.4rem 0.75rem;" aria-label="Toggle Navigation">
+              ☰ Menu
+            </button>
             <div>
-              <h4 style="font-family:var(--font-serif); font-size:1.2rem; color:var(--navy-950);">Manage Website Testimonials & Patient Reviews</h4>
-              <p style="font-size:0.85rem; color:var(--charcoal-600);">Add, edit, or remove patient success stories displayed on the homepage carousel slider.</p>
+              <h3 style="font-family:var(--font-serif); font-size:1.35rem; color:var(--navy-950); margin-bottom:0.1rem;">
+                ArohanCare Clinical Dashboard
+              </h3>
+              <div style="font-size:0.8rem; color:var(--charcoal-600);">Real-time lead tracking, patient management & clinic settings</div>
             </div>
-            <button class="btn btn-primary btn-sm" id="admin-add-testimonial-btn">➕ Add New Testimonial</button>
           </div>
 
-          <div class="admin-table-container">
-            <table class="admin-table">
-              <thead>
-                <tr>
-                  <th>Initials & Couple Name</th>
-                  <th>Location & Treatment Meta</th>
-                  <th>Rating</th>
-                  <th>Patient Story / Quote</th>
-                  <th>Verification Status</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="admin-testimonials-table-body">
-                <!-- Dynamically rendered -->
-              </tbody>
-            </table>
+          <div style="display:flex; align-items:center; gap:0.75rem;">
+            <button class="btn btn-secondary btn-sm back-to-website-btn">← Website</button>
+            <button class="btn btn-secondary btn-sm" id="admin-change-pass-btn">🔑 Password</button>
           </div>
+        </header>
+
+        <!-- Viewport Scrollable Content -->
+        <div class="admin-viewport-content">
+          
+          <!-- Stats KPI Cards -->
+          <div class="admin-stats-grid">
+            <div class="admin-stat-card">
+              <div class="admin-stat-val" id="stat-total-submissions">0</div>
+              <div class="admin-stat-lbl">Total Leads Received</div>
+            </div>
+            <div class="admin-stat-card">
+              <div class="admin-stat-val" id="stat-quiz-leads" style="color:var(--teal-700);">0</div>
+              <div class="admin-stat-lbl">Quiz Assessments</div>
+            </div>
+            <div class="admin-stat-card">
+              <div class="admin-stat-val" id="stat-confirmed-slots" style="color:var(--leaf-green-600);">0</div>
+              <div class="admin-stat-lbl">Confirmed Slots</div>
+            </div>
+            <div class="admin-stat-card">
+              <div class="admin-stat-val" id="stat-pending-leads" style="color:#D97706;">0</div>
+              <div class="admin-stat-lbl">Pending Follow-ups</div>
+            </div>
+          </div>
+
+          <!-- TAB 1: SUBMISSIONS & LEADS TABLE -->
+          <div id="tab-submissions" class="admin-tab-content">
+            <div class="admin-filter-bar">
+              <input type="text" id="admin-search-input" class="admin-search-input" placeholder="🔍 Search by Contact, Patient Name, Phone, City, State...">
+              
+              <select id="admin-status-filter" class="form-select" style="width: auto; min-width: 150px;">
+                <option value="all">All Statuses</option>
+                <option value="Pending">Pending</option>
+                <option value="Contacted">Contacted</option>
+                <option value="Confirmed">Confirmed</option>
+                <option value="Completed">Completed</option>
+              </select>
+
+              <select id="admin-type-filter" class="form-select" style="width: auto; min-width: 150px;">
+                <option value="all">All Sources</option>
+                <option value="Quiz Lead">Quiz Lead</option>
+                <option value="Direct Booking">Direct Booking</option>
+              </select>
+
+              <button class="btn btn-teal btn-sm" id="export-csv-btn">📥 Export CSV</button>
+              <button class="btn btn-primary btn-sm" id="add-manual-lead-btn">➕ Add Lead</button>
+            </div>
+
+            <div class="admin-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>ID & Date</th>
+                    <th>Contact Name</th>
+                    <th>Patient Name</th>
+                    <th>Phone & Email</th>
+                    <th>City & State</th>
+                    <th>Concern / Quiz</th>
+                    <th>Source</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-leads-table-body">
+                  <!-- Dynamically rendered -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB TESTIMONIALS: MANAGE HOMEPAGE REVIEWS -->
+          <div id="tab-testimonials" class="admin-tab-content" style="display:none;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:1rem;">
+              <div>
+                <h4 style="font-family:var(--font-serif); font-size:1.2rem; color:var(--navy-950);">Manage Website Testimonials & Patient Reviews</h4>
+                <p style="font-size:0.85rem; color:var(--charcoal-600);">Add, edit, or remove patient success stories displayed on the homepage carousel slider.</p>
+              </div>
+              <button class="btn btn-primary btn-sm" id="admin-add-testimonial-btn">➕ Add New Testimonial</button>
+            </div>
+
+            <div class="admin-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Initials & Couple Name</th>
+                    <th>Location & Treatment Meta</th>
+                    <th>Rating</th>
+                    <th>Patient Story / Quote</th>
+                    <th>Verification Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-testimonials-table-body">
+                  <!-- Dynamically rendered -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 2: ROLE-BASED ACCESS CONTROL (RBAC) -->
+          <div id="tab-users" class="admin-tab-content" style="display:none;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <h4 style="font-family:var(--font-serif); font-size:1.2rem; color:var(--navy-950);">Staff Team & Role Access Control</h4>
+              <button class="btn btn-primary btn-sm" id="add-staff-btn">➕ Add Staff User</button>
+            </div>
+            <div class="admin-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Staff ID</th>
+                    <th>User / Doctor Name</th>
+                    <th>Username</th>
+                    <th>Assigned Role</th>
+                    <th>Permissions</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-users-table-body">
+                  <tr>
+                    <td>USR-101</td>
+                    <td><strong>Dr. Ananya Sharma</strong></td>
+                    <td>admin</td>
+                    <td><span class="role-tag" style="background:#E0EAFD; color:#043175;">Super Admin</span></td>
+                    <td>Full Access (Read/Write, RBAC, Passwords, CSV Export)</td>
+                    <td><span class="status-badge status-confirmed">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>USR-102</td>
+                    <td><strong>Dr. Rajesh Patel</strong></td>
+                    <td>doctor</td>
+                    <td><span class="role-tag" style="background:#F3E8FF; color:#6B21A8;">Specialist Doctor</span></td>
+                    <td>Clinical Quiz Records, Patient Symptoms, Diagnosis View</td>
+                    <td><span class="status-badge status-confirmed">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>USR-103</td>
+                    <td><strong>Sunita Rao (Lead Coordinator)</strong></td>
+                    <td>coordinator</td>
+                    <td><span class="role-tag" style="background:#CCFBF1; color:#0F766E;">Care Coordinator</span></td>
+                    <td>Patient Phone/City Contacts, Booking Status Updates</td>
+                    <td><span class="status-badge status-confirmed">Active</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 3: PASSWORD & SECURITY -->
+          <div id="tab-security" class="admin-tab-content" style="display:none; max-width:540px;">
+            <h4 style="font-family:var(--font-serif); font-size:1.2rem; color:var(--navy-950); margin-bottom:1rem;">Manage Admin Password</h4>
+            <form id="admin-change-password-form">
+              <div class="form-group">
+                <label class="form-label" for="current-password-input">Current Password *</label>
+                <input type="password" id="current-password-input" class="form-input" placeholder="Current admin password" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-password-input">New Password *</label>
+                <input type="password" id="new-password-input" class="form-input" placeholder="At least 6 characters" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="confirm-password-input">Confirm New Password *</label>
+                <input type="password" id="confirm-password-input" class="form-input" placeholder="Re-enter new password" required>
+              </div>
+
+              <div id="password-change-msg" style="display:none; padding:0.75rem; border-radius:10px; font-size:0.875rem; font-weight:600; margin-bottom:1rem;"></div>
+
+              <button type="submit" class="btn btn-primary btn-lg">Update Admin Password</button>
+            </form>
+          </div>
+
         </div>
-
-        <!-- TAB 2: ROLE-BASED ACCESS CONTROL (RBAC) -->
-        <div id="tab-users" class="admin-tab-content" style="display:none;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
-            <h4 style="font-family:var(--font-serif); font-size:1.2rem; color:var(--navy-950);">Staff Team & Role Access Control</h4>
-            <button class="btn btn-primary btn-sm" id="add-staff-btn">➕ Add Staff User</button>
-          </div>
-          <div class="admin-table-container">
-            <table class="admin-table">
-              <thead>
-                <tr>
-                  <th>Staff ID</th>
-                  <th>User / Doctor Name</th>
-                  <th>Username</th>
-                  <th>Assigned Role</th>
-                  <th>Permissions</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody id="admin-users-table-body">
-                <tr>
-                  <td>USR-101</td>
-                  <td><strong>Dr. Ananya Sharma</strong></td>
-                  <td>admin</td>
-                  <td><span class="role-tag" style="background:#E0EAFD; color:#043175;">Super Admin</span></td>
-                  <td>Full Access (Read/Write, RBAC, Passwords, CSV Export)</td>
-                  <td><span class="status-badge status-confirmed">Active</span></td>
-                </tr>
-                <tr>
-                  <td>USR-102</td>
-                  <td><strong>Dr. Rajesh Patel</strong></td>
-                  <td>doctor</td>
-                  <td><span class="role-tag" style="background:#F3E8FF; color:#6B21A8;">Specialist Doctor</span></td>
-                  <td>Clinical Quiz Records, Patient Symptoms, Diagnosis View</td>
-                  <td><span class="status-badge status-confirmed">Active</span></td>
-                </tr>
-                <tr>
-                  <td>USR-103</td>
-                  <td><strong>Sunita Rao (Lead Coordinator)</strong></td>
-                  <td>coordinator</td>
-                  <td><span class="role-tag" style="background:#CCFBF1; color:#0F766E;">Care Coordinator</span></td>
-                  <td>Patient Phone/City Contacts, Booking Status Updates</td>
-                  <td><span class="status-badge status-confirmed">Active</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- TAB 3: PASSWORD & SECURITY -->
-        <div id="tab-security" class="admin-tab-content" style="display:none; max-width:540px;">
-          <h4 style="font-family:var(--font-serif); font-size:1.2rem; color:var(--navy-950); margin-bottom:1rem;">Manage Admin Password</h4>
-          <form id="admin-change-password-form">
-            <div class="form-group">
-              <label class="form-label" for="current-password-input">Current Password *</label>
-              <input type="password" id="current-password-input" class="form-input" placeholder="Current admin password" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="new-password-input">New Password *</label>
-              <input type="password" id="new-password-input" class="form-input" placeholder="At least 6 characters" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="confirm-password-input">Confirm New Password *</label>
-              <input type="password" id="confirm-password-input" class="form-input" placeholder="Re-enter new password" required>
-            </div>
-
-            <div id="password-change-msg" style="display:none; padding:0.75rem; border-radius:10px; font-size:0.875rem; font-weight:600; margin-bottom:1rem;"></div>
-
-            <button type="submit" class="btn btn-primary btn-lg">Update Admin Password</button>
-          </form>
-        </div>
-
-      </div>
+      </main>
 
     </div>
+
   </div>
 
   <!-- ADD / EDIT TESTIMONIAL FORM MODAL -->

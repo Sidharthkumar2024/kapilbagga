@@ -1805,6 +1805,127 @@ button {
   color: var(--charcoal-600);
 }
 
+/* Full Page Dedicated Admin Portal */
+.admin-page-portal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #F8FAFC;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: var(--font-sans);
+}
+
+.admin-full-login-wrap {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 10% 20%, #043175 0%, #011638 100%);
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.admin-full-login-card {
+  width: 100%;
+  max-width: 460px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+  text-align: center;
+}
+
+.admin-full-dashboard-layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.admin-sidebar {
+  width: 270px;
+  background: #011638;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.75rem 1.25rem;
+  flex-shrink: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.admin-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.admin-sidebar-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  color: #94A3B8;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.admin-sidebar-nav-btn:hover {
+  color: #FFF;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.admin-sidebar-nav-btn.active {
+  color: #FFF;
+  background: var(--teal-700);
+  box-shadow: 0 4px 14px rgba(0, 128, 128, 0.4);
+}
+
+.admin-main-viewport {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  background: #F8FAFC;
+}
+
+.admin-top-header {
+  background: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.admin-viewport-content {
+  padding: 2rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
 .admin-filter-bar {
   display: flex;
   align-items: center;
