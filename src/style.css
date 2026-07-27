@@ -547,12 +547,26 @@ button {
 
 /* Gradient Shimmer Text Animation */
 .gradient-shimmer-text {
+  color: #043175;
   background: linear-gradient(135deg, #043175 0%, #008B8B 30%, #D97706 65%, #043175 100%);
   background-size: 200% auto;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: textShimmer 6s linear infinite;
   font-style: italic;
+}
+
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #043175 !important;
+  margin-bottom: 1.15rem;
+  font-style: italic;
+  display: block;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 @keyframes textShimmer {
