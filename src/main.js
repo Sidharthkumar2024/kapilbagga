@@ -258,9 +258,9 @@ document.addEventListener('DOMContentLoaded', () => {
       stepBadge: "Step 2 of 6",
       time: "⏱ Day 2–3",
       icon: "👩‍⚕️",
-      title: "Step 2: Meet Senior Specialist Dr. Ananya Sharma",
+      title: "Step 2: Meet Senior Fertility Specialist",
       desc: "In-depth 45-minute consultation reviewing your medical history, menstrual cycle patterns, previous treatment attempts, and emotional goals in a private, supportive atmosphere.",
-      actionText: "💬 Meet Dr. Ananya Sharma"
+      actionText: "💬 Meet Senior Specialist"
     },
     3: {
       stepBadge: "Step 3 of 6",
@@ -291,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
       time: "⏱ Milestone",
       icon: "✨",
       title: "Step 6: Confirmed Conception & Early Prenatal Transition",
-      desc: "Celebrating your positive pregnancy confirmation with early beta-hCG monitoring, viability ultrasound scan, and seamless handoff to comprehensive prenatal obstetric care.",
+      desc: "The moment you've been waiting for. We celebrate your pregnancy and continue supporting you with compassionate prenatal care every step of the way.",
       actionText: "🎉 Start Your Journey Today"
     }
   };
@@ -479,228 +479,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     6. INTERACTIVE ASSESSMENT QUIZ & PATIENT DATA SUBMISSION
+     6. TESTIMONIALS & REVIEWS SLIDER
      ========================================================================== */
-  const quizQuestions = [
-    {
-      question: "1. What is your primary health or fertility goal today?",
-      options: [
-        { label: "Concerns with PCOS or Hormonal Imbalance", key: "pcos" },
-        { label: "Trying to Conceive & Need Evaluation", key: "fertility-evaluation" },
-        { label: "Irregular or Missed Cycles", key: "irregular-periods" },
-        { label: "Pre-conception Planning & Health Check", key: "pregnancy-planning" }
-      ]
-    },
-    {
-      question: "2. How long have you been experiencing symptoms or trying to conceive?",
-      options: [
-        { label: "Less than 6 Months", score: 1 },
-        { label: "6 Months to 1 Year", score: 2 },
-        { label: "1 to 2 Years", score: 3 },
-        { label: "More than 2 Years", score: 4 }
-      ]
-    },
-    {
-      question: "3. Have you experienced any of the following symptoms recently?",
-      options: [
-        { label: "Irregular cycles, acne, or weight changes", score: 2 },
-        { label: "Painful periods or pelvic discomfort", score: 2 },
-        { label: "Thyroid issues or fatigue", score: 2 },
-        { label: "None of the above / Just starting planning", score: 1 }
-      ]
-    },
-    {
-      question: "4. What is your preferred consultation timeline?",
-      options: [
-        { label: "As soon as possible (This week)", priority: "high" },
-        { label: "Within the next 2 weeks", priority: "medium" },
-        { label: "Just exploring options for now", priority: "low" }
-      ]
-    }
-  ];
-
-  let currentQuizStep = 0;
-  let userQuizAnswers = {};
-
-  const quizQuestionText = document.getElementById('quiz-question-text');
-  const quizOptionsContainer = document.getElementById('quiz-options-container');
-  const quizProgressFill = document.getElementById('quiz-progress-fill');
-  const quizCard = document.getElementById('quiz-card');
-
-  function renderQuizStep() {
-    if (!quizCard || !quizQuestionText || !quizOptionsContainer) return;
-
-    if (currentQuizStep < quizQuestions.length) {
-      const q = quizQuestions[currentQuizStep];
-      quizQuestionText.textContent = q.question;
-
-      const progress = ((currentQuizStep + 1) / (quizQuestions.length + 1)) * 100;
-      if (quizProgressFill) quizProgressFill.style.width = `${progress}%`;
-
-      quizOptionsContainer.innerHTML = '';
-      q.options.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.className = 'quiz-option-btn';
-        btn.innerHTML = `
-          <span>${opt.label}</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-        `;
-
-        btn.addEventListener('click', () => {
-          userQuizAnswers[currentQuizStep] = opt;
-          currentQuizStep++;
-          renderQuizStep();
-        });
-
-        quizOptionsContainer.appendChild(btn);
-      });
-    } else if (currentQuizStep === quizQuestions.length) {
-      // Step 5: Fill Contact & Patient Details Form
-      renderQuizContactForm();
-    }
-  }
-
-  function renderQuizContactForm() {
-    if (quizProgressFill) quizProgressFill.style.width = `100%`;
-
-    const selectedGoalObj = userQuizAnswers[0];
-    const goalLabel = selectedGoalObj ? selectedGoalObj.label : "Fertility Check";
-
-    quizCard.innerHTML = `
-      <div>
-        <div style="font-size:0.85rem; font-weight:700; color:var(--teal-700); text-transform:uppercase; margin-bottom:0.4rem;">Final Step: Save Your Assessment Report</div>
-        <h3 style="font-family:var(--font-serif); font-size:1.6rem; color:var(--navy-950); margin-bottom:0.5rem;">
-          Enter Your Details to Lock Priority Consultation
-        </h3>
-        <p style="font-size:0.925rem; color:var(--charcoal-600); margin-bottom:1.5rem;">
-          Your answers have been analyzed for <strong>${goalLabel}</strong>. Fill in your details below to save your assessment report in our clinical portal.
-        </p>
-
-        <form id="quiz-details-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="quiz-contact-name">Contact Person Name *</label>
-              <input type="text" id="quiz-contact-name" class="form-input" placeholder="e.g. Rahul Sharma" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="quiz-patient-name">Patient Name *</label>
-              <input type="text" id="quiz-patient-name" class="form-input" placeholder="e.g. Priya Sharma" required>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="quiz-phone">Mobile / WhatsApp Number *</label>
-              <input type="tel" id="quiz-phone" class="form-input" placeholder="+91 98765 43210" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="quiz-email">Email Address *</label>
-              <input type="email" id="quiz-email" class="form-input" placeholder="priya@example.com" required>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="quiz-city">City *</label>
-              <input type="text" id="quiz-city" class="form-input" placeholder="e.g. Bengaluru" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="quiz-state">State *</label>
-              <input type="text" id="quiz-state" class="form-input" placeholder="e.g. Karnataka" required>
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-green btn-lg" style="width:100%; margin-top:0.5rem;">
-            <span>Save Assessment & Book Priority Slot</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </form>
-      </div>
-    `;
-
-    const quizForm = document.getElementById('quiz-details-form');
-    if (quizForm) {
-      quizForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const contactName = document.getElementById('quiz-contact-name').value.trim();
-        const patientName = document.getElementById('quiz-patient-name').value.trim();
-        const phone = document.getElementById('quiz-phone').value.trim();
-        const email = document.getElementById('quiz-email').value.trim();
-        const city = document.getElementById('quiz-city').value.trim();
-        const state = document.getElementById('quiz-state').value.trim();
-
-        const leadId = 'ARC-2026-' + Math.floor(1000 + Math.random() * 9000);
-        const newLead = {
-          id: leadId,
-          date: new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }),
-          name: contactName,
-          patient_name: patientName,
-          phone: phone,
-          email: email,
-          city: city,
-          state: state,
-          condition: goalLabel,
-          score: `Duration: ${userQuizAnswers[1]?.label || 'N/A'}, Urgency: ${userQuizAnswers[3]?.label || 'High'}`,
-          type: 'Quiz Lead',
-          status: 'Pending',
-          notes: `Submitted via Interactive Assessment. Primary Goal: ${goalLabel}`
-        };
-
-        saveLead(newLead);
-
-        // Confetti celebration
-        confetti({
-          particleCount: 120,
-          spread: 80,
-          origin: { y: 0.6 },
-          colors: ['#043175', '#008B8B', '#10B981', '#7E22CE']
-        });
-
-        renderQuizSuccess(newLead);
-      });
-    }
-  }
-
-  function renderQuizSuccess(lead) {
-    quizCard.innerHTML = `
-      <div style="text-align:center; padding:1rem;">
-        <div style="width:70px; height:70px; border-radius:50%; background:var(--leaf-green-100); color:var(--leaf-green-600); display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem;">
-          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-        </div>
-        <div style="font-size:0.85rem; font-weight:700; color:var(--leaf-green-600); text-transform:uppercase; margin-bottom:0.4rem;">Assessment Saved & Locked</div>
-        <h3 style="font-family:var(--font-serif); font-size:1.8rem; color:var(--navy-950); margin-bottom:0.75rem;">
-          Priority Slot Reserved for ${lead.patient_name}! 🎉
-        </h3>
-        <p style="font-size:1rem; color:var(--charcoal-600); max-width:600px; margin:0 auto 1.25rem; line-height:1.6;">
-          Your Reference ID is <strong>${lead.id}</strong>. Our Senior Fertility Care Coordinator will call or WhatsApp you at <strong>${lead.phone}</strong> within 15 minutes.
-        </p>
-
-        <div style="background:var(--warm-white); padding:1rem; border-radius:16px; border:1px solid var(--navy-100); text-align:left; max-width:540px; margin:0 auto 1.5rem; font-size:0.9rem;">
-          <div><strong>Patient Name:</strong> ${lead.patient_name}</div>
-          <div><strong>Contact Person:</strong> ${lead.name}</div>
-          <div><strong>Location:</strong> ${lead.city}, ${lead.state}</div>
-          <div><strong>Primary Concern:</strong> ${lead.condition}</div>
-          <div><strong>Status:</strong> <span class="status-badge status-pending">Pending Follow-up</span></div>
-        </div>
-
-        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
-          <a href="https://wa.me/919876543210?text=Hi%20ArohanCare%2C%20my%20assessment%20ref%20is%20${lead.id}.%20I%20would%20like%20to%20confirm%20my%20slot." target="_blank" class="btn btn-whatsapp btn-lg">
-            <span>WhatsApp Care Team Now</span>
-          </a>
-          <button class="btn btn-secondary btn-lg open-admin-btn">
-            <span>View in Admin Portal</span>
-          </button>
-        </div>
-      </div>
-    `;
-
-    const adminBtn = quizCard.querySelector('.open-admin-btn');
-    if (adminBtn) {
-      adminBtn.addEventListener('click', openAdminPortal);
-    }
-  }
-
-  renderQuizStep();
 
   /* ==========================================================================
      7. TESTIMONIALS CAROUSEL SLIDER & STORAGE
