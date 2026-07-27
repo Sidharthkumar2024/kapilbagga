@@ -1308,6 +1308,7 @@
         <!-- Admin Navigation Tabs -->
         <div class="admin-nav-tabs">
           <button class="admin-tab-btn active" data-tab="tab-submissions">📋 Patient Submissions & Quiz Leads</button>
+          <button class="admin-tab-btn" data-tab="tab-testimonials">💬 Testimonials Manager</button>
           <button class="admin-tab-btn" data-tab="tab-users">👥 Role-Based Staff Users (RBAC)</button>
           <button class="admin-tab-btn" data-tab="tab-security">🔑 Password & Security Settings</button>
         </div>
@@ -1351,6 +1352,35 @@
                 </tr>
               </thead>
               <tbody id="admin-leads-table-body">
+                <!-- Dynamically rendered -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB TESTIMONIALS: MANAGE HOMEPAGE REVIEWS -->
+        <div id="tab-testimonials" class="admin-tab-content" style="display:none;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:1rem;">
+            <div>
+              <h4 style="font-family:var(--font-serif); font-size:1.2rem; color:var(--navy-950);">Manage Website Testimonials & Patient Reviews</h4>
+              <p style="font-size:0.85rem; color:var(--charcoal-600);">Add, edit, or remove patient success stories displayed on the homepage carousel slider.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" id="admin-add-testimonial-btn">➕ Add New Testimonial</button>
+          </div>
+
+          <div class="admin-table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Initials & Couple Name</th>
+                  <th>Location & Treatment Meta</th>
+                  <th>Rating</th>
+                  <th>Patient Story / Quote</th>
+                  <th>Verification Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-testimonials-table-body">
                 <!-- Dynamically rendered -->
               </tbody>
             </table>
@@ -1433,13 +1463,61 @@
     </div>
   </div>
 
-  <!-- PATIENT LEAD DETAILS VIEW MODAL -->
-  <div class="modal-overlay" id="lead-details-modal">
-    <div class="modal-card" style="max-width: 580px;">
-      <button class="modal-close-btn" id="close-lead-details-modal">&times;</button>
-      <div id="lead-details-modal-body">
-        <!-- Dynamically rendered -->
-      </div>
+  <!-- ADD / EDIT TESTIMONIAL FORM MODAL -->
+  <div class="modal-overlay" id="testimonial-form-modal">
+    <div class="modal-card" style="max-width: 600px;">
+      <button class="modal-close-btn" id="close-testimonial-modal" aria-label="Close Modal">&times;</button>
+      
+      <h3 style="font-family:var(--font-serif); font-size:1.6rem; color:var(--navy-950); margin-bottom:0.5rem;" id="testimonial-modal-title">
+        Add Patient Testimonial
+      </h3>
+      <p style="font-size:0.9rem; color:var(--charcoal-600); margin-bottom:1.25rem;">
+        Changes made here will update the public website carousel slider in real-time.
+      </p>
+
+      <form id="testimonial-form">
+        <input type="hidden" id="testimonial-edit-id" value="">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="testi-name">Couple / Patient Name *</label>
+            <input type="text" id="testi-name" class="form-input" placeholder="e.g. Priyanka & Rahul M." required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="testi-initials">Avatar Initials *</label>
+            <input type="text" id="testi-initials" class="form-input" placeholder="e.g. P & R" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="testi-meta">Location & Treatment Meta *</label>
+            <input type="text" id="testi-meta" class="form-input" placeholder="e.g. Bengaluru • PCOS & Fertility Treatment" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="testi-rating">Star Rating *</label>
+            <select id="testi-rating" class="form-select" required>
+              <option value="5">⭐⭐⭐⭐⭐ (5 Stars)</option>
+              <option value="4">⭐⭐⭐⭐ (4 Stars)</option>
+              <option value="3">⭐⭐⭐ (3 Stars)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="testi-quote">Patient Story Quote *</label>
+          <textarea id="testi-quote" class="form-textarea" style="height:100px;" placeholder="Enter patient story quote..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="testi-verified">Verification Tag *</label>
+          <input type="text" id="testi-verified" class="form-input" placeholder="e.g. Verified ArohanCare Patient • Baby Born 2026" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">
+          <span>Save Testimonial</span>
+        </button>
+      </form>
     </div>
   </div>
 

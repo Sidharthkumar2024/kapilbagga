@@ -638,31 +638,56 @@ document.addEventListener('DOMContentLoaded', () => {
   renderQuizStep();
 
   /* ==========================================================================
-     7. TESTIMONIALS CAROUSEL SLIDER
+     7. TESTIMONIALS CAROUSEL SLIDER & STORAGE
      ========================================================================== */
-  const testimonials = [
+  const DB_KEY_TESTIMONIALS = 'arohancare_testimonials_v2';
+
+  const defaultTestimonials = [
     {
+      id: 't-1',
       name: "Priyanka & Rahul M.",
       meta: "Bengaluru • PCOS & Fertility Treatment",
       quote: "After 4 years of struggling with severe PCOS and irregular cycles, we met Dr. Ananya at ArohanCare. Her calm reassurance, precise diagnostic clarity, and personalized care brought us our healthy baby boy in 2025.",
       initials: "P & R",
+      rating: 5,
       verified: "Verified ArohanCare Patient • Baby Born Sept 2025"
     },
     {
+      id: 't-2',
       name: "Sneha & Vikram S.",
       meta: "Hyderabad • Pregnancy Planning",
       quote: "The warmth and privacy at ArohanCare is unmatched. Every single person on the care team treats you with deep respect. We conceived naturally within 4 months of their tailored hormone regulation plan!",
       initials: "S & V",
+      rating: 5,
       verified: "Verified ArohanCare Patient • Expecting Twins 2026"
     },
     {
+      id: 't-3',
       name: "Aniti & Dev K.",
       meta: "Chennai • Irregular Period & Ovulation Care",
       quote: "We were overwhelmed by generic advice from other clinics. Dr. Ananya listened to us for an hour during our first visit and mapped out a simple, stress-free protocol that worked wonders.",
       initials: "A & D",
+      rating: 5,
       verified: "Verified ArohanCare Patient • Baby Girl Born 2025"
     }
   ];
+
+  function getTestimonials() {
+    const data = localStorage.getItem(DB_KEY_TESTIMONIALS);
+    if (!data) {
+      localStorage.setItem(DB_KEY_TESTIMONIALS, JSON.stringify(defaultTestimonials));
+      return defaultTestimonials;
+    }
+    try {
+      return JSON.parse(data);
+    } catch (e) {
+      return defaultTestimonials;
+    }
+  }
+
+  function saveTestimonialsList(list) {
+    localStorage.setItem(DB_KEY_TESTIMONIALS, JSON.stringify(list));
+  }
 
   let currentTestimonialIndex = 0;
   const testimonialCard = document.getElementById('testimonial-card');
@@ -671,12 +696,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const carouselDots = document.querySelectorAll('.carousel-dot');
 
   function renderTestimonial(index) {
-    const item = testimonials[index];
+    const list = getTestimonials();
+    if (!list || list.length === 0) {
+      if (testimonialCard) {
+        testimonialCard.innerHTML = `
+          <div style="text-align:center; padding: 2.5rem; color:var(--charcoal-600);">
+            No testimonials available currently. Add patient reviews from the Admin Panel.
+          </div>
+        `;
+      }
+      return;
+    }
+
+    currentTestimonialIndex = ((index % list.length) + list.length) % list.length;
+    const item = list[currentTestimonialIndex];
     if (!item || !testimonialCard) return;
+
+    const starCount = item.rating || 5;
+    const starsHtml = '★'.repeat(starCount);
 
     testimonialCard.innerHTML = `
       <div style="text-align:center;">
-        <div style="width:130px; height:130px; border-radius:50%; background:var(--teal-50); margin:0 auto 1rem; display:flex; align-items:center; justify-content:center; font-family:var(--font-serif); font-size:2.5rem; color:var(--navy-950); font-weight:700; border:4px solid var(--pure-white); box-shadow:var(--shadow-md);">
+        <div style="width:130px; height:130px; border-radius:50%; background:var(--teal-50); margin:0 auto 1rem; display:flex; align-items:center; justify-content:center; font-family:var(--font-serif); font-size:2.2rem; color:var(--navy-950); font-weight:700; border:4px solid var(--pure-white); box-shadow:var(--shadow-md);">
           ${item.initials}
         </div>
         <div class="testimonial-author-name">${item.name}</div>
@@ -684,7 +725,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
 
       <div>
-        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-stars">${starsHtml}</div>
         <blockquote class="testimonial-quote">"${item.quote}"</blockquote>
         <div style="font-size:0.85rem; color:var(--teal-700); font-weight:600; display:flex; align-items:center; gap:0.4rem;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
@@ -694,22 +735,28 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
     carouselDots.forEach((dot, dIdx) => {
-      if (dIdx === index) dot.classList.add('active');
+      if (dIdx === currentTestimonialIndex) dot.classList.add('active');
       else dot.classList.remove('active');
     });
   }
 
   if (prevTestimonialBtn) {
     prevTestimonialBtn.addEventListener('click', () => {
-      currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
-      renderTestimonial(currentTestimonialIndex);
+      const list = getTestimonials();
+      if (list.length) {
+        currentTestimonialIndex = (currentTestimonialIndex - 1 + list.length) % list.length;
+        renderTestimonial(currentTestimonialIndex);
+      }
     });
   }
 
   if (nextTestimonialBtn) {
     nextTestimonialBtn.addEventListener('click', () => {
-      currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
-      renderTestimonial(currentTestimonialIndex);
+      const list = getTestimonials();
+      if (list.length) {
+        currentTestimonialIndex = (currentTestimonialIndex + 1) % list.length;
+        renderTestimonial(currentTestimonialIndex);
+      }
     });
   }
 
@@ -721,8 +768,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   setInterval(() => {
-    currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
-    renderTestimonial(currentTestimonialIndex);
+    const list = getTestimonials();
+    if (list.length) {
+      currentTestimonialIndex = (currentTestimonialIndex + 1) % list.length;
+      renderTestimonial(currentTestimonialIndex);
+    }
   }, 6000);
 
   /* ==========================================================================
@@ -933,6 +983,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     renderAdminDashboard();
+    renderAdminTestimonialsTable();
   }
 
   openAdminBtns.forEach(btn => {
@@ -988,8 +1039,171 @@ document.addEventListener('DOMContentLoaded', () => {
           content.style.display = 'none';
         }
       });
+
+      if (targetTabId === 'tab-testimonials') {
+        renderAdminTestimonialsTable();
+      }
     });
   });
+
+  // ADMIN TESTIMONIALS MANAGER LOGIC
+  function renderAdminTestimonialsTable() {
+    const tableBody = document.getElementById('admin-testimonials-table-body');
+    if (!tableBody) return;
+
+    const testimonials = getTestimonials();
+    tableBody.innerHTML = '';
+
+    if (testimonials.length === 0) {
+      tableBody.innerHTML = `
+        <tr>
+          <td colspan="6" style="text-align:center; padding: 2rem; color:var(--charcoal-500);">
+            No testimonials found. Click "+ Add New Testimonial" to create one.
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    testimonials.forEach(item => {
+      const tr = document.createElement('tr');
+      const stars = '⭐'.repeat(item.rating || 5);
+      
+      tr.innerHTML = `
+        <td>
+          <div style="display:flex; align-items:center; gap:0.65rem;">
+            <div style="width:36px; height:36px; border-radius:50%; background:var(--navy-900); color:var(--pure-white); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85rem;">
+              ${item.initials}
+            </div>
+            <strong>${item.name}</strong>
+          </div>
+        </td>
+        <td style="font-size:0.85rem; color:var(--navy-900);">${item.meta}</td>
+        <td><span style="color:#D97706; font-size:0.85rem;">${stars}</span></td>
+        <td style="max-width:280px; font-size:0.825rem; color:var(--charcoal-600); line-height:1.4;">
+          "${item.quote.length > 90 ? item.quote.substring(0, 90) + '...' : item.quote}"
+        </td>
+        <td>
+          <span class="status-badge status-confirmed" style="font-size:0.75rem;">${item.verified}</span>
+        </td>
+        <td>
+          <div style="display:flex; gap:0.4rem;">
+            <button class="btn btn-secondary btn-sm edit-testi-btn" data-id="${item.id}" style="padding:0.3rem 0.6rem; font-size:0.78rem;">✏️ Edit</button>
+            <button class="btn btn-secondary btn-sm delete-testi-btn" data-id="${item.id}" style="padding:0.3rem 0.6rem; font-size:0.78rem; color:#DC2626; border-color:#FCA5A5;">🗑️ Delete</button>
+          </div>
+        </td>
+      `;
+
+      tableBody.appendChild(tr);
+    });
+
+    // Attach Edit & Delete Event Listeners
+    tableBody.querySelectorAll('.edit-testi-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-id');
+        openEditTestimonialModal(id);
+      });
+    });
+
+    tableBody.querySelectorAll('.delete-testi-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-id');
+        if (confirm('Are you sure you want to remove this testimonial from the website homepage?')) {
+          const list = getTestimonials().filter(t => t.id !== id);
+          saveTestimonialsList(list);
+          renderAdminTestimonialsTable();
+          renderTestimonial(0);
+        }
+      });
+    });
+  }
+
+  // Add & Edit Testimonial Modal Handlers
+  const testimonialModal = document.getElementById('testimonial-form-modal');
+  const closeTestimonialModalBtn = document.getElementById('close-testimonial-modal');
+  const addTestimonialBtn = document.getElementById('admin-add-testimonial-btn');
+  const testimonialForm = document.getElementById('testimonial-form');
+  const testimonialModalTitle = document.getElementById('testimonial-modal-title');
+
+  if (addTestimonialBtn) {
+    addTestimonialBtn.addEventListener('click', () => {
+      if (testimonialForm) testimonialForm.reset();
+      document.getElementById('testimonial-edit-id').value = '';
+      if (testimonialModalTitle) testimonialModalTitle.textContent = 'Add Patient Testimonial';
+      if (testimonialModal) {
+        testimonialModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  }
+
+  function openEditTestimonialModal(id) {
+    const list = getTestimonials();
+    const item = list.find(t => t.id === id);
+    if (!item) return;
+
+    document.getElementById('testimonial-edit-id').value = item.id;
+    document.getElementById('testi-name').value = item.name;
+    document.getElementById('testi-initials').value = item.initials;
+    document.getElementById('testi-meta').value = item.meta;
+    document.getElementById('testi-rating').value = item.rating || 5;
+    document.getElementById('testi-quote').value = item.quote;
+    document.getElementById('testi-verified').value = item.verified;
+
+    if (testimonialModalTitle) testimonialModalTitle.textContent = 'Edit Patient Testimonial';
+    if (testimonialModal) {
+      testimonialModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  if (closeTestimonialModalBtn) {
+    closeTestimonialModalBtn.addEventListener('click', () => {
+      if (testimonialModal) {
+        testimonialModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  if (testimonialForm) {
+    testimonialForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const editId = document.getElementById('testimonial-edit-id').value;
+      const name = document.getElementById('testi-name').value.trim();
+      const initials = document.getElementById('testi-initials').value.trim();
+      const meta = document.getElementById('testi-meta').value.trim();
+      const rating = parseInt(document.getElementById('testi-rating').value, 10);
+      const quote = document.getElementById('testi-quote').value.trim();
+      const verified = document.getElementById('testi-verified').value.trim();
+
+      let list = getTestimonials();
+
+      if (editId) {
+        // Edit existing
+        list = list.map(t => {
+          if (t.id === editId) {
+            return { id: editId, name, initials, meta, rating, quote, verified };
+          }
+          return t;
+        });
+      } else {
+        // Add new
+        const newId = 't-' + Date.now();
+        list.push({ id: newId, name, initials, meta, rating, quote, verified });
+      }
+
+      saveTestimonialsList(list);
+      renderAdminTestimonialsTable();
+      renderTestimonial(0);
+
+      if (testimonialModal) {
+        testimonialModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
 
   // Render Dashboard Table and Stats
   function renderAdminDashboard() {
