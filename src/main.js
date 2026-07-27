@@ -240,58 +240,123 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     4. PATIENT JOURNEY TIMELINE SELECTOR
+     4. PATIENT JOURNEY TIMELINE SELECTOR (CLEAR STEP-BY-STEP CARE)
      ========================================================================== */
   const timelineStepNodes = document.querySelectorAll('.timeline-step-node');
   const timelineProgress = document.getElementById('timeline-progress');
-  const timelineDetailContent = document.getElementById('timeline-detail-content');
 
   const stepDetails = {
     1: {
-      title: "Step 1: First Consultation & Diagnostic Mapping",
-      desc: "Detailed 60-minute confidential discussion with Dr. Ananya Sharma to map your medical history, cycle regularity, and lifestyle factors. Includes 3D pelvic ultrasound screening."
+      stepBadge: "Step 1 of 6",
+      time: "⏱ Day 1",
+      icon: "📋",
+      title: "Step 1: Book Initial Confidential Consultation",
+      desc: "Take your first peaceful step by booking an appointment online or via WhatsApp. Our patient relations team will confirm your preferred time slot within 15 minutes and share your pre-visit confidential questionnaire.",
+      actionText: "🗓️ Book Step 1 Consultation"
     },
     2: {
-      title: "Step 2: Root Cause Evaluation & Lab Tests",
-      desc: "Precision blood panel (AMH, Thyroid, LH, FSH, Prolactin) and non-invasive tubal assessment. We identify exact endocrine signals within 5–7 business days."
+      stepBadge: "Step 2 of 6",
+      time: "⏱ Day 2–3",
+      icon: "👩‍⚕️",
+      title: "Step 2: Meet Senior Specialist Dr. Ananya Sharma",
+      desc: "In-depth 45-minute consultation reviewing your medical history, menstrual cycle patterns, previous treatment attempts, and emotional goals in a private, supportive atmosphere.",
+      actionText: "💬 Meet Dr. Ananya Sharma"
     },
     3: {
-      title: "Step 3: Personalized Treatment Strategy",
-      desc: "Joint decision-making session. We build a clear 90-day roadmap tailored to your body—combining follicle tracking, hormonal support, or targeted lifestyle therapy."
+      stepBadge: "Step 3 of 6",
+      time: "⏱ Day 4–7",
+      icon: "🔬",
+      title: "Step 3: Targeted 3D Ultrasound & Endocrine Diagnostics",
+      desc: "Advanced 3D pelvic sonography, ovarian follicle count (AFC), AMH reserve screening, and hormone mapping performed gently under one roof with zero waiting time.",
+      actionText: "🔍 View Diagnostic Screening Details"
     },
     4: {
-      title: "Step 4: Active Cycle Guidance & Care Support",
-      desc: "Weekly cycle tracking with minimal clinic visits. Our care coordinators provide round-the-clock guidance on medication timing and fertile window optimization."
+      stepBadge: "Step 4 of 6",
+      time: "⏱ Week 2",
+      icon: "🎯",
+      title: "Step 4: Personalized Evidence-Based Clinical Plan",
+      desc: "Joint decision-making session to review diagnostic findings and map out your 90-day customized care plan—combining ovulation induction, lifestyle modifications, or fertility support.",
+      actionText: "📋 Request Custom Care Protocol"
     },
     5: {
-      title: "Step 5: Progress Review & Milestone Tracking",
-      desc: "Evaluation of treatment response and endometrial lining receptivity. We adapt your protocol dynamically for highest natural conception probabilities."
+      stepBadge: "Step 5 of 6",
+      time: "⏱ Month 1–3",
+      icon: "💬",
+      title: "Step 5: Guided Active Cycle Monitoring & 24/7 Care",
+      desc: "Follicular tracking scans, ovulation timing guidance, medication reminders, and 24/7 dedicated WhatsApp care coordinator assistance throughout your treatment cycle.",
+      actionText: "💬 Speak with Care Coordinator"
     },
     6: {
-      title: "Step 6: Successful Conception & Early Pregnancy",
-      desc: "Confirmation scan, initial beta-hCG monitoring, and smooth transition to early prenatal care with full emotional & medical support."
+      stepBadge: "Step 6 of 6",
+      time: "⏱ Milestone",
+      icon: "✨",
+      title: "Step 6: Confirmed Conception & Early Prenatal Transition",
+      desc: "Celebrating your positive pregnancy confirmation with early beta-hCG monitoring, viability ultrasound scan, and seamless handoff to comprehensive prenatal obstetric care.",
+      actionText: "🎉 Start Your Journey Today"
     }
   };
+
+  let currentActiveStep = 1;
+
+  function updateTimelineStep(stepVal) {
+    currentActiveStep = stepVal;
+
+    timelineStepNodes.forEach(n => {
+      const nodeStep = parseInt(n.getAttribute('data-step'), 10);
+      if (nodeStep === stepVal) {
+        n.classList.add('active');
+      } else {
+        n.classList.remove('active');
+      }
+    });
+
+    const progressPct = ((stepVal - 1) / (timelineStepNodes.length - 1)) * 100;
+    if (timelineProgress) timelineProgress.style.width = `${progressPct}%`;
+
+    const detail = stepDetails[stepVal];
+    if (detail) {
+      const iconEl = document.getElementById('timeline-detail-icon');
+      const badgeEl = document.getElementById('timeline-step-badge');
+      const timeEl = document.getElementById('timeline-step-time');
+      const titleEl = document.getElementById('timeline-detail-title');
+      const descEl = document.getElementById('timeline-detail-desc');
+      const actionBtn = document.getElementById('timeline-action-btn');
+
+      if (iconEl) iconEl.textContent = detail.icon;
+      if (badgeEl) badgeEl.textContent = detail.stepBadge;
+      if (timeEl) timeEl.textContent = detail.time;
+      if (titleEl) titleEl.textContent = detail.title;
+      if (descEl) descEl.textContent = detail.desc;
+      if (actionBtn) {
+        const span = actionBtn.querySelector('span');
+        if (span) span.textContent = detail.actionText;
+      }
+    }
+  }
 
   timelineStepNodes.forEach(node => {
     node.addEventListener('click', () => {
       const stepVal = parseInt(node.getAttribute('data-step'), 10);
-
-      timelineStepNodes.forEach(n => n.classList.remove('active'));
-      node.classList.add('active');
-
-      const progressPct = ((stepVal - 1) / (timelineStepNodes.length - 1)) * 100;
-      if (timelineProgress) timelineProgress.style.width = `${progressPct}%`;
-
-      const detail = stepDetails[stepVal];
-      if (detail && timelineDetailContent) {
-        timelineDetailContent.innerHTML = `
-          <h4 style="font-family:var(--font-serif); font-size:1.35rem; color:var(--navy-950); margin-bottom:0.4rem;">${detail.title}</h4>
-          <p style="font-size:0.975rem; color:var(--charcoal-600); line-height:1.6;">${detail.desc}</p>
-        `;
-      }
+      updateTimelineStep(stepVal);
     });
   });
+
+  const prevStepBtn = document.getElementById('prev-step-btn');
+  const nextStepBtn = document.getElementById('next-step-btn');
+
+  if (prevStepBtn) {
+    prevStepBtn.addEventListener('click', () => {
+      const prev = currentActiveStep > 1 ? currentActiveStep - 1 : 6;
+      updateTimelineStep(prev);
+    });
+  }
+
+  if (nextStepBtn) {
+    nextStepBtn.addEventListener('click', () => {
+      const next = currentActiveStep < 6 ? currentActiveStep + 1 : 1;
+      updateTimelineStep(next);
+    });
+  }
 
   /* ==========================================================================
      5. CONDITIONS WE TREAT (MODAL)
