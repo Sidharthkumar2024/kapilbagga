@@ -1451,10 +1451,129 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Add Manual Lead Button
+  // Add Manual Lead Modal Logic
+  const addLeadModal = document.getElementById('add-lead-modal');
+  const closeAddLeadModalBtn = document.getElementById('close-add-lead-modal');
+  const addLeadForm = document.getElementById('add-lead-form');
+
   if (addManualLeadBtn) {
     addManualLeadBtn.addEventListener('click', () => {
-      openBookingModalWithCondition('fertility-evaluation');
+      if (addLeadForm) addLeadForm.reset();
+      if (addLeadModal) {
+        addLeadModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  }
+
+  if (closeAddLeadModalBtn) {
+    closeAddLeadModalBtn.addEventListener('click', () => {
+      if (addLeadModal) {
+        addLeadModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  if (addLeadForm) {
+    addLeadForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('manual-lead-name').value.trim();
+      const patientName = document.getElementById('manual-lead-patient').value.trim();
+      const phone = document.getElementById('manual-lead-phone').value.trim();
+      const email = document.getElementById('manual-lead-email').value.trim();
+      const city = document.getElementById('manual-lead-city').value.trim();
+      const state = document.getElementById('manual-lead-state').value.trim();
+      const condition = document.getElementById('manual-lead-condition').value;
+      const status = document.getElementById('manual-lead-status').value;
+
+      const leadId = 'ARC-MANUAL-' + Math.floor(1000 + Math.random() * 9000);
+      const newLead = {
+        id: leadId,
+        date: new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }),
+        name: name,
+        patient_name: patientName,
+        phone: phone,
+        email: email,
+        city: city,
+        state: state,
+        condition: condition,
+        score: 'Manual Staff Entry',
+        type: 'Direct Booking',
+        status: status,
+        notes: 'Added via Admin Clinical Control Portal'
+      };
+
+      saveLead(newLead);
+      renderAdminDashboard();
+
+      if (addLeadModal) {
+        addLeadModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // Add Staff User Modal Logic
+  const addStaffBtn = document.getElementById('add-staff-btn');
+  const staffUserModal = document.getElementById('staff-user-modal');
+  const closeStaffModalBtn = document.getElementById('close-staff-modal');
+  const staffUserForm = document.getElementById('staff-user-form');
+  const adminUsersTableBody = document.getElementById('admin-users-table-body');
+
+  if (addStaffBtn) {
+    addStaffBtn.addEventListener('click', () => {
+      if (staffUserForm) staffUserForm.reset();
+      if (staffUserModal) {
+        staffUserModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  }
+
+  if (closeStaffModalBtn) {
+    closeStaffModalBtn.addEventListener('click', () => {
+      if (staffUserModal) {
+        staffUserModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  if (staffUserForm) {
+    staffUserForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('staff-name').value.trim();
+      const username = document.getElementById('staff-username').value.trim();
+      const role = document.getElementById('staff-role').value;
+
+      const staffId = 'USR-' + Math.floor(104 + Math.random() * 900);
+      const roleTitle = role === 'super_admin' ? 'Super Admin' :
+                        role === 'doctor' ? 'Specialist Doctor' : 'Care Coordinator';
+      const roleBg = role === 'super_admin' ? '#E0EAFD' : role === 'doctor' ? '#F3E8FF' : '#CCFBF1';
+      const roleFg = role === 'super_admin' ? '#043175' : role === 'doctor' ? '#6B21A8' : '#0F766E';
+
+      if (adminUsersTableBody) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${staffId}</td>
+          <td><strong>${name}</strong></td>
+          <td>${username}</td>
+          <td><span class="role-tag" style="background:${roleBg}; color:${roleFg};">${roleTitle}</span></td>
+          <td>Custom Staff Portal Access</td>
+          <td><span class="status-badge status-confirmed">Active</span></td>
+        `;
+        adminUsersTableBody.appendChild(tr);
+      }
+
+      if (staffUserModal) {
+        staffUserModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      alert(`Staff user "${name}" created successfully with role "${roleTitle}"!`);
     });
   }
 

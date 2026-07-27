@@ -1580,6 +1580,134 @@
     </div>
   </div>
 
+  <!-- ADD MANUAL LEAD MODAL -->
+  <div class="modal-overlay" id="add-lead-modal">
+    <div class="modal-card" style="max-width: 600px;">
+      <button class="modal-close-btn" id="close-add-lead-modal" aria-label="Close Modal">&times;</button>
+      
+      <h3 style="font-family:var(--font-serif); font-size:1.6rem; color:var(--navy-950); margin-bottom:0.5rem;">
+        Add New Patient Lead
+      </h3>
+      <p style="font-size:0.9rem; color:var(--charcoal-600); margin-bottom:1.25rem;">
+        Manually record phone inquiries or walk-in patient consultations.
+      </p>
+
+      <form id="add-lead-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="manual-lead-name">Contact Person Name *</label>
+            <input type="text" id="manual-lead-name" class="form-input" placeholder="e.g. Vikram Verma" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="manual-lead-patient">Patient Name *</label>
+            <input type="text" id="manual-lead-patient" class="form-input" placeholder="e.g. Pooja Verma" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="manual-lead-phone">Phone / WhatsApp Number *</label>
+            <input type="tel" id="manual-lead-phone" class="form-input" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="manual-lead-email">Email Address *</label>
+            <input type="email" id="manual-lead-email" class="form-input" placeholder="e.g. patient@gmail.com" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="manual-lead-city">City *</label>
+            <input type="text" id="manual-lead-city" class="form-input" placeholder="e.g. Bengaluru" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="manual-lead-state">State *</label>
+            <input type="text" id="manual-lead-state" class="form-input" placeholder="e.g. Karnataka" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="manual-lead-condition">Treatment / Concern *</label>
+            <select id="manual-lead-condition" class="form-select" required>
+              <option value="PCOS Management">PCOS / PCOD Care</option>
+              <option value="Irregular Periods">Irregular Cycles & Hormones</option>
+              <option value="Pregnancy Planning">Pregnancy Planning / IVF</option>
+              <option value="General Consultation">General Women's Wellness</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="manual-lead-status">Initial Status *</label>
+            <select id="manual-lead-status" class="form-select" required>
+              <option value="Pending">Pending</option>
+              <option value="Contacted">Contacted</option>
+              <option value="Confirmed">Confirmed</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">
+          <span>Save Patient Record</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- PATIENT LEAD DETAILS VIEW MODAL -->
+  <div class="modal-overlay" id="lead-details-modal">
+    <div class="modal-card" style="max-width: 580px;">
+      <button class="modal-close-btn" id="close-lead-details-modal" aria-label="Close Modal">&times;</button>
+      <div id="lead-details-modal-body">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD STAFF USER MODAL -->
+  <div class="modal-overlay" id="staff-user-modal">
+    <div class="modal-card" style="max-width: 540px;">
+      <button class="modal-close-btn" id="close-staff-modal" aria-label="Close Modal">&times;</button>
+      
+      <h3 style="font-family:var(--font-serif); font-size:1.6rem; color:var(--navy-950); margin-bottom:0.5rem;">
+        Add Staff Team Member
+      </h3>
+      <p style="font-size:0.9rem; color:var(--charcoal-600); margin-bottom:1.25rem;">
+        Assign access credentials & role-based permissions for doctors or care coordinators.
+      </p>
+
+      <form id="staff-user-form">
+        <div class="form-group">
+          <label class="form-label" for="staff-name">Staff Full Name *</label>
+          <input type="text" id="staff-name" class="form-input" placeholder="e.g. Dr. Kavita Reddy" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="staff-username">Username *</label>
+          <input type="text" id="staff-username" class="form-input" placeholder="e.g. drkavita" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="staff-role">Assigned Role *</label>
+          <select id="staff-role" class="form-select" required>
+            <option value="doctor">Specialist Doctor (Clinical Quiz & Assessment View)</option>
+            <option value="coordinator">Care Coordinator (Contacts & Status Update)</option>
+            <option value="super_admin">Super Admin (Full Operations Access)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="staff-password">Initial Password *</label>
+          <input type="password" id="staff-password" class="form-input" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">
+          <span>Add Staff Member</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
   <!-- JavaScript Main App Logic -->
   <script type="module" src="/src/main.js"></script>
 </body>
