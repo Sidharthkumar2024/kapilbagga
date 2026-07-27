@@ -2269,6 +2269,26 @@ button {
   box-shadow: 0 20px 40px -10px rgba(4, 49, 117, 0.14);
 }
 
+.pricing-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.pricing-left-col {
+  text-align: center;
+  padding-right: 2rem;
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
 /* Media Queries for Responsive Clean Layouts */
 @media (max-width: 1024px) {
   .hero-grid,
@@ -2283,6 +2303,10 @@ button {
   }
 
   .conditions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .blog-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -2314,7 +2338,51 @@ button {
   }
 
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
+  }
+
+  .pricing-card-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .pricing-left-col {
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 2rem;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-floating-badge.top-right {
+    top: 10px;
+    right: 0;
+    font-size: 0.78rem;
+    padding: 0.4rem 0.85rem;
+  }
+
+  .hero-floating-badge.bottom-left {
+    bottom: 10px;
+    left: 0;
+    font-size: 0.78rem;
+    padding: 0.4rem 0.85rem;
+  }
+
+  .admin-sidebar {
+    position: fixed;
+    top: 0;
+    left: -290px;
+    height: 100vh;
+    z-index: 10000;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+  }
+
+  .admin-sidebar.open {
+    left: 0;
   }
 
   .counters-grid {
@@ -2370,5 +2438,26 @@ button {
 
   .form-row {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: 1.95rem;
+  }
+
+  .section-heading {
+    font-size: 1.75rem;
+  }
+
+  .symptom-picker-btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    text-align: center;
   }
 }
