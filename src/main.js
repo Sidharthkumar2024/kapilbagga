@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       date: '2026-07-27 10:30 AM',
       name: 'Rahul Sharma',
       patient_name: 'Priya Sharma',
-      phone: '+91 98765 43210',
+      phone: '+91 96439 22267',
       email: 'priya.sharma@example.com',
       city: 'Bengaluru',
       state: 'Karnataka',
@@ -485,14 +485,14 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      7. TESTIMONIALS CAROUSEL SLIDER & STORAGE
      ========================================================================== */
-  const DB_KEY_TESTIMONIALS = 'arohancare_testimonials_v2';
+  const DB_KEY_TESTIMONIALS = 'arohancare_testimonials_v3';
 
   const defaultTestimonials = [
     {
       id: 't-1',
       name: "Priyanka & Rahul M.",
       meta: "Bengaluru • PCOS & Fertility Treatment",
-      quote: "After 4 years of struggling with severe PCOS and irregular cycles, we met Dr. Ananya at ArohanCare. Her calm reassurance, precise diagnostic clarity, and personalized care brought us our healthy baby boy in 2025.",
+      quote: "After 4 years of struggling with severe PCOS and irregular cycles, we met Doctor at Arohan Care and her team. Her calm reassurance, precise diagnostic clarity, and personalized care brought us our healthy baby boy in 2025.",
       initials: "P & R",
       rating: 5,
       verified: "Verified ArohanCare Patient • Baby Born Sept 2025"
@@ -510,7 +510,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 't-3',
       name: "Aniti & Dev K.",
       meta: "Chennai • Irregular Period & Ovulation Care",
-      quote: "We were overwhelmed by generic advice from other clinics. Dr. Ananya listened to us for an hour during our first visit and mapped out a simple, stress-free protocol that worked wonders.",
+      quote: "We were overwhelmed by generic advice from other clinics. Doctor at Arohan Care and her team listened to us for an hour during our first visit and mapped out a simple, stress-free protocol that worked wonders.",
       initials: "A & D",
       rating: 5,
       verified: "Verified ArohanCare Patient • Baby Girl Born 2025"
@@ -671,6 +671,50 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeBookingModalBtn) {
     closeBookingModalBtn.addEventListener('click', () => {
       bookingModal.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+
+  /* About Us Modal */
+  const aboutUsModal = document.getElementById('about-us-modal');
+  const closeAboutBtn = document.getElementById('close-about-modal');
+  const openAboutBtns = document.querySelectorAll('.open-about-modal');
+
+  openAboutBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (aboutUsModal) {
+        aboutUsModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  if (closeAboutBtn) {
+    closeAboutBtn.addEventListener('click', () => {
+      if (aboutUsModal) aboutUsModal.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+
+  /* Privacy Policy Modal */
+  const privacyPolicyModal = document.getElementById('privacy-policy-modal');
+  const closePrivacyBtn = document.getElementById('close-privacy-modal');
+  const openPrivacyBtns = document.querySelectorAll('.open-privacy-modal');
+
+  openPrivacyBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (privacyPolicyModal) {
+        privacyPolicyModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  if (closePrivacyBtn) {
+    closePrivacyBtn.addEventListener('click', () => {
+      if (privacyPolicyModal) privacyPolicyModal.classList.remove('open');
       document.body.style.overflow = '';
     });
   }
