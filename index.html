@@ -1227,8 +1227,8 @@
         <div style="display:flex; gap:1.5rem; flex-wrap:wrap;">
           <a href="#" class="footer-link open-about-modal">About Us</a>
           <a href="#" class="footer-link open-privacy-modal">Privacy Policy</a>
-          <a href="#" class="footer-link open-privacy-modal">Terms of Service</a>
-          <a href="#" class="footer-link open-about-modal">Medical Disclaimer</a>
+          <a href="#" class="footer-link open-terms-modal">Terms of Service</a>
+          <a href="#" class="footer-link open-disclaimer-modal">Medical Disclaimer</a>
         </div>
       </div>
 
@@ -1342,6 +1342,92 @@
           <p>
             We implement appropriate technical, administrative, and physical security measures to safeguard your personal and medical information against unauthorised access, disclosure, alteration, or destruction.
           </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TERMS OF SERVICE MODAL DIALOG -->
+  <div class="modal-overlay" id="terms-of-service-modal">
+    <div class="modal-card" style="max-width:720px; max-height:85vh; overflow-y:auto;">
+      <button class="modal-close-btn" id="close-terms-modal" aria-label="Close Dialog">&times;</button>
+      
+      <div style="padding:0.5rem 0.5rem 1rem;">
+        <span style="font-size:0.8rem; font-weight:700; color:var(--charcoal-500); text-transform:uppercase; letter-spacing:0.05em; display:block; margin-bottom:0.4rem;">Last Updated: July 2026</span>
+        <h2 style="font-family:var(--font-serif); font-size:1.85rem; font-weight:700; color:var(--navy-950); margin-bottom:1.25rem;">Terms of Service</h2>
+
+        <div style="font-size:0.95rem; color:var(--charcoal-700); line-height:1.7; display:flex; flex-direction:column; gap:1.1rem;">
+          <p>Welcome to <strong>ArohanCare.com</strong>.</p>
+          <p>
+            ArohanCare.com is the digital healthcare initiative of <strong>Punjab Care Hospital</strong>, providing online women's health and fertility consultation services.
+          </p>
+          <p>
+            By accessing or using this website, you agree to be bound by these Terms of Service. If you do not agree with these terms, please discontinue use of the website.
+          </p>
+
+          <h3 style="font-weight:700; font-size:1.1rem; color:var(--navy-950); margin-top:0.5rem; margin-bottom:0.25rem;">1. Purpose of the Website</h3>
+          <p style="margin-bottom:0.25rem;">ArohanCare.com provides:</p>
+          <ul style="padding-left:1.25rem; display:flex; flex-direction:column; gap:0.35rem; margin:0;">
+            <li>Information about women's health and fertility services</li>
+            <li>Online consultation booking</li>
+            <li>Health education and awareness</li>
+            <li>Communication with our healthcare team</li>
+            <li>Healthcare-related support services</li>
+          </ul>
+
+          <h3 style="font-weight:700; font-size:1.1rem; color:var(--navy-950); margin-top:0.5rem; margin-bottom:0.25rem;">2. Medical Disclaimer</h3>
+          <p>
+            The information available on this website is provided for general educational and informational purposes only. Content published on ArohanCare.com should not be interpreted as medical advice, diagnosis, or treatment.
+          </p>
+
+          <h3 style="font-weight:700; font-size:1.1rem; color:var(--navy-950); margin-top:0.5rem; margin-bottom:0.25rem;">3. User Responsibilities & Appointments</h3>
+          <p>
+            By using this website, you agree to provide accurate and truthful information. Submitting an appointment request does not guarantee a confirmed consultation; appointments are subject to doctor availability and confirmation.
+          </p>
+
+          <h3 style="font-weight:700; font-size:1.1rem; color:var(--navy-950); margin-top:0.5rem; margin-bottom:0.25rem;">4. Intellectual Property & Governing Law</h3>
+          <p>
+            All content on ArohanCare.com is the property of ArohanCare and/or Punjab Care Hospital. These Terms shall be governed by the laws of India, under the exclusive jurisdiction of the competent courts in Ludhiana, Punjab, India.
+          </p>
+          <p style="font-size:0.9rem; font-weight:600; color:var(--emerald-800); margin-top:0.5rem;">
+            📧 Email: support@arohancare.com | 📞 Phone: +91 9643922267
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEDICAL DISCLAIMER MODAL DIALOG -->
+  <div class="modal-overlay" id="medical-disclaimer-modal">
+    <div class="modal-card" style="max-width:720px; max-height:85vh; overflow-y:auto;">
+      <button class="modal-close-btn" id="close-disclaimer-modal" aria-label="Close Dialog">&times;</button>
+      
+      <div style="padding:0.5rem 0.5rem 1rem;">
+        <span style="font-size:0.8rem; font-weight:700; color:var(--charcoal-500); text-transform:uppercase; letter-spacing:0.05em; display:block; margin-bottom:0.4rem;">Last Updated: July 2026</span>
+        <h2 style="font-family:var(--font-serif); font-size:1.85rem; font-weight:700; color:var(--navy-950); margin-bottom:1.25rem;">Medical Disclaimer</h2>
+
+        <div style="font-size:0.95rem; color:var(--charcoal-700); line-height:1.7; display:flex; flex-direction:column; gap:1.1rem;">
+          <p>Welcome to <strong>ArohanCare.com</strong>.</p>
+          <p>
+            <strong>ArohanCare.com</strong> is the digital healthcare initiative of <strong>Punjab Care Hospital</strong>, providing online women's health and fertility consultation services. The information provided on this website is intended solely for general educational and informational purposes.
+          </p>
+
+          <h3 style="font-weight:700; font-size:1.1rem; color:var(--navy-950); margin-top:0.5rem; margin-bottom:0.25rem;">Not Medical Advice</h3>
+          <p>
+            The content available on ArohanCare.com should <strong>not</strong> be considered medical advice, diagnosis, or treatment. Always seek the advice of a licensed medical practitioner regarding any medical condition, symptoms, diagnosis, or treatment decisions.
+          </p>
+
+          <h3 style="font-weight:700; font-size:1.1rem; color:var(--navy-950); margin-top:0.5rem; margin-bottom:0.25rem;">No Doctor-Patient Relationship Through Browsing</h3>
+          <p>
+            Simply accessing this website or submitting an enquiry does not establish a doctor-patient relationship. A doctor-patient relationship is established only after a direct consultation with a qualified healthcare professional.
+          </p>
+
+          <div style="background:var(--rose-50); border-radius:14px; padding:1.25rem 1.5rem; border:1px solid var(--rose-200); margin-top:0.5rem;">
+            <h3 style="font-weight:700; font-size:1.1rem; color:var(--rose-900); margin-bottom:0.4rem;">🚨 Medical Emergencies</h3>
+            <p style="margin:0; font-size:0.925rem; color:var(--charcoal-700);">
+              ArohanCare.com is not an emergency medical service. If you are experiencing severe abdominal pain, heavy bleeding, chest pain, difficulty breathing, loss of consciousness, or any medical emergency, please contact your nearest emergency hospital immediately.
+            </p>
+          </div>
         </div>
       </div>
     </div>

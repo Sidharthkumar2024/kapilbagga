@@ -719,6 +719,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* Terms of Service Modal */
+  const termsModal = document.getElementById('terms-of-service-modal');
+  const closeTermsBtn = document.getElementById('close-terms-modal');
+  const openTermsBtns = document.querySelectorAll('.open-terms-modal');
+
+  openTermsBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (termsModal) {
+        termsModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  if (closeTermsBtn) {
+    closeTermsBtn.addEventListener('click', () => {
+      if (termsModal) termsModal.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+
+  /* Medical Disclaimer Modal */
+  const disclaimerModal = document.getElementById('medical-disclaimer-modal');
+  const closeDisclaimerBtn = document.getElementById('close-disclaimer-modal');
+  const openDisclaimerBtns = document.querySelectorAll('.open-disclaimer-modal');
+
+  openDisclaimerBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (disclaimerModal) {
+        disclaimerModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  if (closeDisclaimerBtn) {
+    closeDisclaimerBtn.addEventListener('click', () => {
+      if (disclaimerModal) disclaimerModal.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+
   if (appointmentForm) {
     appointmentForm.addEventListener('submit', (e) => {
       e.preventDefault();
