@@ -452,21 +452,13 @@ document.addEventListener('DOMContentLoaded', () => {
             `).join('')}
           </ul>
 
-          <button class="btn btn-primary btn-lg open-booking-modal" style="width:100%;">
+          <a href="https://api.whatsapp.com/send/?phone=919643922267&text=Hi+ArohanCare%2C+I+would+like+to+book+a+fertility+consultation.&type=phone_number&app_absent=0" target="_blank" class="btn btn-primary btn-lg" style="width:100%; text-align:center; display:inline-block;">
             <span>Book ${info.title} Consultation</span>
-          </button>
+          </a>
         `;
 
         conditionModal.classList.add('open');
         document.body.style.overflow = 'hidden';
-
-        const innerBtn = conditionModalBody.querySelector('.open-booking-modal');
-        if (innerBtn) {
-          innerBtn.addEventListener('click', () => {
-            conditionModal.classList.remove('open');
-            openBookingModalWithCondition(key);
-          });
-        }
       }
     });
   });
